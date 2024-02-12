@@ -4,7 +4,7 @@
 }
 
 .fondo {
-    background: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.15)), url('Images/imagenFondo.jpg');
+    background: linear-gradient(rgba(255, 255, 255, 0.00), rgba(255, 255, 255, 0.00)), url('Images/imagenFondo.jpg');
     background-repeat: repeat;
 }
 
@@ -55,7 +55,7 @@ img{
 
 
 .hoverButton:hover{
-    background-color: #a47ef6;
+    background-color: rgba(189, 161, 250, 0.9);
     border-radius: 5px;
 }
 
@@ -143,4 +143,14 @@ img{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.idImagenBotonCopiar {
+    transition: opacity 0.5s ease;
+    opacity: 1;
+}
+
+.idImagenBotonCopiar.oculto {
+    transition: opacity 1.5s ease;
+    opacity: 0.1;
 }

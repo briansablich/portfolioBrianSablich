@@ -499,8 +499,8 @@
                 <div class="form-floating text-black col-6 mx-auto my-3">
                     <input type="email" class="form-control fs-5" style="max-width: 300px;" id="email" name="email"
                         autocomplete="email" required data-bs-toggle="tooltip" data-bs-placement="top"
-                        data-bs-custom-class="custom-tooltip" data-bs-title="eMail">
-                    <label class="fs-6" for="email">eMail</label>
+                        data-bs-custom-class="custom-tooltip" data-bs-title="e-Mail">
+                    <label class="fs-6" for="email">e-Mail</label>
                 </div>
 
                 <div class="form-floating text-black col-6 mx-auto my-3">
@@ -605,7 +605,7 @@
                 <div class="col my-auto ps-3 fs-3">
                     2024 ® | BRIAN SABLICH
                     <div class="pt-4 m-auto justify-content-center">
-                        <a class="m-1 py-2 linksFooter d-flex" id="emailLabel">
+                        <a class="m-1 py-2 linksFooter d-flex" style="align-items: center;" id="emailLabel">
                             briansablich@gmail.com<button class="p-0 btn botonCopiar"
                                 data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-placement="right"
                                 data-bs-title="Copiar e-Mail">
@@ -686,8 +686,10 @@
                 // Eliminar el textarea temporal
                 document.body.removeChild(textarea);
 
-                idImagenBotonCopiar[index].src = 'Images/svgCopied.svg';
 
+                idImagenBotonCopiar[index].src = 'Images/svgCopied.svg';
+                
+                idImagenBotonCopiar[index].classList.add('oculto');
                 // Ocultar el tooltip después de 1 segundo
                 setTimeout(() => {
                     if (index == 0)
@@ -695,7 +697,8 @@
                     else
                         idImagenBotonCopiar[index].src = 'Images/svgCopy.svg';
 
-                }, 1500);
+                    idImagenBotonCopiar[index].classList.remove('oculto');
+                }, 1000);
             });
         });
 
