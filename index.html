@@ -511,8 +511,8 @@
                 </div>
 
                 <div class="form-floating text-black col-6 mx-auto my-3">
-                    <input class="form-control fs-5" name="message" id="asunto" style="max-width: 350px;"
-                        required data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                    <input class="form-control fs-5" name="message" id="asunto" style="max-width: 350px;" required
+                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                         data-bs-title="Asunto"></input>
                     <label class="fs-6" for="asunto">Asunto</label>
                 </div>
@@ -572,6 +572,16 @@
                 </a>
             </div>
 
+            <div class="my-4">
+                <a href="javascript:void(0)" class="m-1 py-3 p-2 hoverButton botonCopiar"
+                    data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-placement="right"
+                    data-bs-title="Copiar e-Mail">
+                    <img src="Images/svgCopyBotonera.svg" style="height: 30px; width: 30px;"
+                        class="img-fluid idImagenBotonCopiar">
+                </a>
+            </div>
+
+
             <div class="mt-2">
                 <a href="https://drive.google.com/file/d/1Z1aklwn8AwtWxUZ8tX1F0BiYLYHrpYVu/view" target="_blank"
                     class="m-1 py-3 p-2 hoverButton" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip"
@@ -592,22 +602,15 @@
     <footer class="pageFooter">
         <div class="container-fluid">
             <div class="row">
-                <div class="col my-auto ms-3 fs-3">
+                <div class="col my-auto ps-3 fs-3">
                     2024 ® | BRIAN SABLICH
-                    <div class="mt-4">
-                        <a class="m-1 py-3 p-2  linksFooter" id="emailLabel">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                class="bi bi-envelope-at-fill d-none d-md-inline" viewBox="0 0 16 16">
-                                <path
-                                    d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2zm-2 9.8V4.698l5.803 3.546zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.5 4.5 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586zM16 9.671V4.697l-5.803 3.546.338.208A4.5 4.5 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671" />
-                                <path
-                                    d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791" />
-                            </svg>
-                            briansablich@gmail.com<button id="botonCopiar" class="p-0 pb-1 btn"
+                    <div class="pt-4 d-flex m-auto justify-content-center">
+                        <a class="m-1 py-2 linksFooter d-flex" id="emailLabel">
+                            briansablich@gmail.com<button class="p-0 btn botonCopiar"
                                 data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-placement="right"
-                                data-bs-title="Copiar eMail">
-                                <img id="idImagenBotonCopiar" src="Images/svgCopy.svg" style="height: 2em; width: 2em;"
-                                    class="img-fluid">
+                                data-bs-title="Copiar e-Mail">
+                                <img src="Images/svgCopy.svg" style="height: 2em; width: 2em;"
+                                    class="idImagenBotonCopiar hoverButton p-auto">
                             </button>
                         </a>
 
@@ -616,7 +619,6 @@
 
 
                 <div class="col text-end me-4">
-
                     <div class="mt-2 mb-4">
                         <a href="https://github.com/briansablich" target="_blank" class="m-1 py-3 p-2 linksFooter">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="bi bi-github"
@@ -663,31 +665,38 @@
         //Fin Codigo del tooltip customizado
 
         //Boton copiar
-        const botonCopiar = document.getElementById('botonCopiar');
+        const botonCopiar = document.querySelectorAll('.botonCopiar');
         const emailLabel = document.getElementById('emailLabel');
-        const idImagenBotonCopiar = document.getElementById('idImagenBotonCopiar');
+        const idImagenBotonCopiar = document.querySelectorAll('.idImagenBotonCopiar');
 
-        botonCopiar.addEventListener('click', () => {
-            const textoACopiar = emailLabel.innerText;
+        botonCopiar.forEach((boton, index) => {
+            boton.addEventListener('click', () => {
 
-            // Crear un elemento de textarea para copiar el texto
-            const textarea = document.createElement('textarea');
-            textarea.value = textoACopiar;
-            document.body.appendChild(textarea);
+                const textoACopiar = emailLabel.innerText;
 
-            // Seleccionar y copiar el texto
-            textarea.select();
-            document.execCommand('copy');
+                // Crear un elemento de textarea para copiar el texto
+                const textarea = document.createElement('textarea');
+                textarea.value = textoACopiar;
+                document.body.appendChild(textarea);
 
-            // Eliminar el textarea temporal
-            document.body.removeChild(textarea);
+                // Seleccionar y copiar el texto
+                textarea.select();
+                document.execCommand('copy');
 
-            idImagenBotonCopiar.src = 'Images/svgCopied.svg';
+                // Eliminar el textarea temporal
+                document.body.removeChild(textarea);
 
-            // Ocultar el tooltip después de 1 segundo
-            setTimeout(() => {
-                idImagenBotonCopiar.src = 'Images/svgCopy.svg';
-            }, 1500);
+                idImagenBotonCopiar[index].src = 'Images/svgCopied.svg';
+
+                // Ocultar el tooltip después de 1 segundo
+                setTimeout(() => {
+                    if (index == 0)
+                        idImagenBotonCopiar[index].src = 'Images/svgCopyBotonera.svg';
+                    else
+                        idImagenBotonCopiar[index].src = 'Images/svgCopy.svg';
+
+                }, 1500);
+            });
         });
 
         //Fin boton copiar
