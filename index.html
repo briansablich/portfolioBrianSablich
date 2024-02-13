@@ -42,7 +42,8 @@
                     <div style="cursor: wait;">
                         <button class="btn btn-primary ms-3" style="opacity: 90%" type="button" disabled>
                             <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
-                            <span role="status" style="font-weight: 700; font-size: large;">Loading...</span>
+                            <span role="status"
+                                style="font-weight: 700; font-size: large; padding-left: 4px;">Loading...</span>
                         </button>
                     </div>
                 </div>
@@ -52,36 +53,62 @@
 
     <!-----------------------------------PRESENTACION------------------------------------------->
     <div class="container">
-        <section class="text-white pt-2 m-2">
-            <div style="display: grid; place-items: center; margin: auto;" class="m-3">
-                <p class="fondoNegro p-4 fs-5 lh-base">
-                    😸 Mi nombre completo es Brian Sablich, soy de la Capital Federal, Argentina.<br><br>
-                    🧠 Con el paso de los años adquirí madurez y estabilidad económica que me posibilitó eligir
-                    racionalmente a que me quería dedicar. Opté por la carrera de Licenciatura en Geografía de la UBA, y
-                    aunque me llevé muchos aprendizajes con el pasar de las materias me di cuenta que quería otra
-                    cosa.<br><br>
-                    💻 Fue en ese momento que descubrí la programación y la atracción fue inmediata. Empecé con videos
-                    de YouTube, luego una diplomatura en desarrollo web en UTN, y por último, entré en la universidad.
-                    Hoy me encuentro a 7 materias de recibirme de Técnico Universitario en Programación, también en
-                    UTN.<br><br>
-                    👷Con una sólida base técnica y la determinación de enfrentar nuevos retos, estoy listo para aplicar
-                    mis habilidades y conocimientos en proyectos innovadores. Mi historia no solo es sobre códigos y
-                    algoritmos, sino también sobre transformación, perseverancia y el deseo de alcanzar nuevos
-                    horizontes.<br><br>
-                    👋¡Bienvenido a mi espacio digital! Aquí compartiré más sobre mi experiencia, habilidades y
-                    proyectos.👋
-                </p>
+        <section id="presentacion" class="text-white fondoNegro p-1 m-4">
+            <div class="row p-4 text-center subtitulos">
+                <h2 style="font-weight: bold;">PRESENTACION</h2>
+            </div>
+            <p class="p-2 fs-5">😸 Mi nombre completo es Brian Sablich, soy de la Capital Federal, Argentina.</p>
+            <p class="p-2 fs-5">👋¡Bienvenido a mi espacio digital! Aquí compartiré más sobre mi experiencia,
+                habilidades y
+                proyectos.👋</p>
+
+            <!--------------------------PRESENTACION ARCHIVOS------------------------------->
+
+            <div style="display: flex; place-items: center; margin: auto;" class="m-2 px-2 py-3">
+
+                <div id="archivos" class="container d-flex px-2 py-3">
+                    <div class="d-flex my-3" style="justify-content: start;">
+                        <a href="#presentacion" style="cursor: default; text-decoration: none;" class="archivo bordes p-1"
+                            data-texto="comoLlegue">
+                            <img src="Images/svgFileTxt.svg" style="max-height: 80px; max-width: 80px;" class="img-fluid">
+                                <p class="p-1 mb-0 text-black">
+                                    Hola.txt
+                                </p>
+                        </a>
+                    </div>
+
+                    <div>
+                        <a href="#" style="cursor: default;" class="archivo hoverButton"
+                            data-texto="Texto del archivo 2">Archivo 2</a>
+
+                    </div>
+                    <div id="textoArchivo">
+
+                    </div>
+                </div>
+
+
             </div>
 
-            <!-- <div id="archivos">
-                <a href="#" class="archivo" data-texto="Texto del archivo 1">Archivo 1</a>
-                <a href="#" class="archivo" data-texto="Texto del archivo 2">Archivo 2</a>
-               
-            </div>
+            <!--------------------------FIN PRESENTACION ARCHIVOS------------------------------->
 
-            <div id="textoArchivo">
-               
-            </div> -->
+            <!-- <p class="fondoNegro p-4 fs-5 lh-base">
+                😸 Mi nombre completo es Brian Sablich, soy de la Capital Federal, Argentina.<br><br>
+                🧠 Con el paso de los años adquirí madurez y estabilidad económica que me posibilitó eligir
+                racionalmente a que me quería dedicar. Opté por la carrera de Licenciatura en Geografía de la UBA, y
+                aunque me llevé muchos aprendizajes con el pasar de las materias me di cuenta que quería otra
+                cosa.<br><br>
+                💻 Fue en ese momento que descubrí la programación y la atracción fue inmediata. Empecé con videos
+                de YouTube, luego una diplomatura en desarrollo web en UTN, y por último, entré en la universidad.
+                Hoy me encuentro a 7 materias de recibirme de Técnico Universitario en Programación, también en
+                UTN.<br><br>
+                👷Con una sólida base técnica y la determinación de enfrentar nuevos retos, estoy listo para aplicar
+                mis habilidades y conocimientos en proyectos innovadores. Mi historia no solo es sobre códigos y
+                algoritmos, sino también sobre transformación, perseverancia y el deseo de alcanzar nuevos
+                horizontes.<br><br>
+                👋¡Bienvenido a mi espacio digital! Aquí compartiré más sobre mi experiencia, habilidades y
+                proyectos.👋
+            </p> -->
 
         </section>
     </div>
