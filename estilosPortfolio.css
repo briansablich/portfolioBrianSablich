@@ -4,7 +4,7 @@
 }
 
 .fondo {
-    background: linear-gradient(rgba(255, 255, 255, 0.00), rgba(255, 255, 255, 0.00)), url('Images/imagenFondo.jpg');
+    background: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.15)), url('Images/imagenFondo.jpg');
     background-repeat: repeat;
 }
 
