@@ -73,6 +73,16 @@
                 </p>
             </div>
 
+            <!-- <div id="archivos">
+                <a href="#" class="archivo" data-texto="Texto del archivo 1">Archivo 1</a>
+                <a href="#" class="archivo" data-texto="Texto del archivo 2">Archivo 2</a>
+               
+            </div>
+
+            <div id="textoArchivo">
+               
+            </div> -->
+
         </section>
     </div>
     <!-----------------------------------FIN PRESENTACION------------------------------------------->
@@ -448,7 +458,7 @@
 
                 <div class="col-12 col-md-6 col-lg-3  d-flex justify-content-center">
                     <div class="card m-2" style="max-width: 18rem;">
-                        <div class="card-header">2022-Cursando</div>
+                        <div style="font-weight: 700;" class="card-header">2022-Cursando</div>
                         <div class="card-body">
                             <h5 class="card-title fw-bold">Tecnicatura Universitaria en Programación</h5>
                             <p class="card-text">FRGP, Universidad Tecnológica Nacional.<br>Buenos Aires, Argentina.</p>
@@ -458,7 +468,7 @@
 
                 <div class="col-12 col-md-6 col-lg-3 d-flex justify-content-center">
                     <div class="card m-2" style="max-width: 18rem;">
-                        <div class="card-header">2021</div>
+                        <div style="font-weight: 700;" class="card-header">2021</div>
                         <div class="card-body">
                             <h5 class="card-title fw-bold">Diplomatura en Programación Web FullStack</h5>
                             <p class="card-text">FRRE, Universidad Tecnológica Nacional. E-Learning (online)<br> Chaco,
@@ -469,7 +479,7 @@
 
                 <div class="col-12 col-md-6 col-lg-3 d-flex justify-content-center">
                     <div class="card m-2" style="max-width: 18rem;">
-                        <div class="card-header">2017</div>
+                        <div style="font-weight: 700;" class="card-header">2017</div>
                         <div class="card-body">
                             <h5 class="card-title fw-bold">Curso en Sistemas de Información Geográfica</h5>
                             <p class="card-text">Cooperativa Grográfica Cambalache.<br>Ciudad Autónoma de Buenos Aires,
@@ -480,7 +490,7 @@
 
                 <div class="col-12 col-md-6 col-lg-3 d-flex justify-content-center">
                     <div class="card m-2" style="max-width: 18rem;">
-                        <div class="card-header">2015-2019<br>(No concluida)</div>
+                        <div style="font-weight: 700;" class="card-header">2015-2019<br>(No concluida)</div>
                         <div class="card-body">
                             <h5 class="card-title fw-bold">Licenciatura en Geografía</h5>
                             <p class="card-text">Facultad de Filosofía y Letras, Universidad de Buenos Aires.<br> Ciudad
@@ -506,32 +516,32 @@
                     <input type="email" class="form-control fs-5" style="max-width: 300px;" id="email" name="email"
                         autocomplete="email" required data-bs-toggle="tooltip" data-bs-placement="top"
                         data-bs-custom-class="custom-tooltip" data-bs-title="e-Mail">
-                    <label class="fs-6" for="email">e-Mail</label>
+                    <label class="fs-6" style="font-weight: 900;" for="email">e-Mail</label>
                 </div>
 
                 <div class="form-floating text-black col-6 mx-auto my-3">
                     <input class="form-control fs-5" style="max-width: 350px;" name="message" id="nombre" required
                         data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                         data-bs-title="Nombre"></input>
-                    <label class="fs-6" for="nombre">Nombre</label>
+                    <label style="font-weight: 900;" class="fs-6" for="nombre">Nombre</label>
                 </div>
 
                 <div class="form-floating text-black col-6 mx-auto my-3">
                     <input class="form-control fs-5" name="message" id="asunto" style="max-width: 350px;" required
                         data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                         data-bs-title="Asunto"></input>
-                    <label class="fs-6" for="asunto">Asunto</label>
+                    <label style="font-weight: 900;" class="fs-6" for="asunto">Asunto</label>
                 </div>
 
                 <div class="form-floating text-black col-6 mx-auto my-3">
                     <textarea class="form-control fs-5" name="message" id="floatingTextarea" style="height: 100px;"
                         required data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                         data-bs-title="Mensaje"></textarea>
-                    <label class="fs-6" for="floatingTextarea">Mensaje</label>
+                    <label style="font-weight: 900;" class="fs-6 " for="floatingTextarea">Mensaje</label>
                 </div>
 
                 <div class="d-flex">
-                    <button class="btn btn-primary m-2 mx-auto" type="submit">Enviar</button>
+                    <button style="font-weight: 700;" class="btn btn-primary m-2 mx-auto" type="submit">Enviar</button>
                 </div>
             </form>
         </section>
@@ -608,7 +618,7 @@
     <footer class="pageFooter">
         <div class="container-fluid">
             <div class="row">
-                <div class="col my-auto ps-3 fs-3">
+                <div style="font-weight: 700;" class="col my-auto ps-3 fs-3">
                     2024 ® | BRIAN SABLICH
                     <div class="pt-4 m-auto justify-content-center">
                         <a class="m-1 py-2 linksFooter d-flex" style="align-items: center;" id="emailLabel">
@@ -664,52 +674,7 @@
     </footer>
     <!---------------------------FIN FOOTER-------------------------------------------->
 
-    <script>
-        //Codigo del tooltip customizado
-        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-        //Fin Codigo del tooltip customizado
-
-        //Boton copiar
-        const botonCopiar = document.querySelectorAll('.botonCopiar');
-        const emailLabel = document.getElementById('emailLabel');
-        const idImagenBotonCopiar = document.querySelectorAll('.idImagenBotonCopiar');
-
-        botonCopiar.forEach((boton, index) => {
-            boton.addEventListener('click', () => {
-
-                const textoACopiar = emailLabel.innerText;
-
-                // Crear un elemento de textarea para copiar el texto
-                const textarea = document.createElement('textarea');
-                textarea.value = textoACopiar;
-                document.body.appendChild(textarea);
-
-                // Seleccionar y copiar el texto
-                textarea.select();
-                document.execCommand('copy');
-
-                // Eliminar el textarea temporal
-                document.body.removeChild(textarea);
-
-
-                idImagenBotonCopiar[index].src = 'Images/svgCopied.svg';
-
-                idImagenBotonCopiar[index].classList.add('oculto');
-                // Ocultar el tooltip después de 1 segundo
-                setTimeout(() => {
-                    if (index == 0)
-                        idImagenBotonCopiar[index].src = 'Images/svgCopyBotonera.svg';
-                    else
-                        idImagenBotonCopiar[index].src = 'Images/svgCopy.svg';
-
-                    idImagenBotonCopiar[index].classList.remove('oculto');
-                }, 1000);
-            });
-        });
-
-        //Fin boton copiar
-    </script>
+    <script src="funcionesPortfolio.js"></script>
 </body>
 
 </html>

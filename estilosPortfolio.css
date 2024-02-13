@@ -156,3 +156,11 @@ img {
     transition: opacity 1.5s ease;
     opacity: 0.1;
 }
+
+.archivo {
+    display: block;
+    margin-bottom: 10px;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
