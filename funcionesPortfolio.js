@@ -45,22 +45,48 @@
 
         //JS DE ARCHIVOS DE PRESENTACION
 
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const archivos = document.querySelectorAll('.archivo');
-
+            let clickCount = 0;
+            let timer;
+        
             archivos.forEach(archivo => {
-                archivo.addEventListener('click', function (e) {
+                archivo.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const texto = this.getAttribute('data-texto');
-                    mostrarTexto(texto);
+                    clickCount++;
+                    if (clickCount === 1) {
+                        timer = setTimeout(function() {
+                            clickCount = 0;
+                        }, 300);
+                    } else if (clickCount === 2) {
+                        const divTexto = document.getElementById('divTexto');
+                        const estadoDisplay = window.getComputedStyle(divTexto).display;
+                        const cajaTitulo = document.getElementById('cajaTitulo');
+                        const dataTexto = archivo.getAttribute('data-texto');
+                        const dataTitle = archivo.getAttribute('data-title');
+                        
+                        if (estadoDisplay === 'none' || cajaTitulo.textContent !== dataTitle) {
+                            divTexto.style.display = 'block';
+                            divTexto.classList.add('cajaTextoClass');
+                            mostrarTexto(dataTexto, dataTitle);
+                        } else {
+                            divTexto.style.display = 'none';
+                        }
+                        
+                        clearTimeout(timer);
+                        clickCount = 0;
+                    }
                 });
             });
-
-            function mostrarTexto(texto) {
-                const contenedorTexto = document.getElementById('textoArchivo');
-                contenedorTexto.textContent = texto;
+            
+            function mostrarTexto(textoArchivo, textoTitulo) {
+                const contenedorTexto = document.getElementById('cajaTexto');
+                const contenedorTitulo = document.getElementById('cajaTitulo');
+                contenedorTexto.textContent = textoArchivo;
+                contenedorTitulo.textContent = textoTitulo;
             }
         });
+        
 
         //FIN JS DE ARCHIVOS DE PRESENTACION
 
