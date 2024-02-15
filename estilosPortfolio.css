@@ -177,12 +177,13 @@ img {
     min-width: 450px;
     margin: auto;
     padding: 1% 2% 1% 2%;
-    border-color: rgb(164, 126, 246);
+    border-color: rgb(178, 151, 237);
     border-style: double;
     color: #fbfbfb;
+
     div {
-       padding: 4px;
-       text-align: center;
-       justify-content: center;
+        padding: 4px;
+        text-align: center;
+        justify-content: center;
     }
 }
