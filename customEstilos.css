@@ -13,7 +13,6 @@
 
 .card:hover {
   --bs-card-border-width: 2px !important;
-  margin: 6.5px !important;
 }
 
 .btn-primary {
