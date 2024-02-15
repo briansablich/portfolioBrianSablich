@@ -59,18 +59,31 @@
                             clickCount = 0;
                         }, 300);
                     } else if (clickCount === 2) {
-                        const texto = archivo.getAttribute('data-texto');
-                        mostrarTexto(texto);
+                        const divTexto = document.getElementById('divTexto');
+                        const estadoDisplay = window.getComputedStyle(divTexto).display;
+                        const cajaTitulo = document.getElementById('cajaTitulo');
+                        const dataTexto = archivo.getAttribute('data-texto');
+                        const dataTitle = archivo.getAttribute('data-title');
+                        
+                        if (estadoDisplay === 'none' || cajaTitulo.textContent !== dataTitle) {
+                            divTexto.style.display = 'block';
+                            divTexto.classList.add('cajaTextoClass');
+                            mostrarTexto(dataTexto, dataTitle);
+                        } else {
+                            divTexto.style.display = 'none';
+                        }
+                        
                         clearTimeout(timer);
                         clickCount = 0;
-                        // Aquí puedes agregar una acción adicional para el doble clic si lo deseas
                     }
                 });
             });
-        
-            function mostrarTexto(texto) {
-                const contenedorTexto = document.getElementById('textoArchivo');
-                contenedorTexto.textContent = texto;
+            
+            function mostrarTexto(textoArchivo, textoTitulo) {
+                const contenedorTexto = document.getElementById('cajaTexto');
+                const contenedorTitulo = document.getElementById('cajaTitulo');
+                contenedorTexto.textContent = textoArchivo;
+                contenedorTitulo.textContent = textoTitulo;
             }
         });
         

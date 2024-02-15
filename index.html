@@ -33,7 +33,7 @@
                 </h1>
             </div>
             <div class="mb-3 mt-5">
-                <h3 class="fw-bold fst-italic">Futuro Técnico en Programación</h3>
+                <h3 class="fw-bold fst-italic fs-1">Futuro Técnico en Programación</h3>
                 <div class="d-flex align-items-center justify-content-center">
                     <div class="progress" style="width: 50%; cursor: wait;" role="progressbar"
                         aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
@@ -53,46 +53,119 @@
 
     <!-----------------------------------PRESENTACION------------------------------------------->
     <div class="container">
-        <section id="presentacion" class="text-white fondoNegro p-1 m-4">
+
+        <!----------------------PRESENTACION BASADA EN ARCHIVOS----------------->
+        <section id="presentacion" class="text-white fondoNegro p-1 m-4 d-none d-md-block">
+
             <div class="row p-4 text-center subtitulos">
                 <h2 style="font-weight: bold;">PRESENTACION</h2>
             </div>
-            <p class="p-2 fs-5">😸 Mi nombre completo es Brian Sablich, soy de la Capital Federal, Argentina.</p>
-            <p class="p-2 fs-5">👋¡Bienvenido a mi espacio digital! Aquí compartiré más sobre mi experiencia,
-                habilidades y
-                proyectos.👋</p>
+            <p class="p-2 fs-5">😸 Mi nombre completo es Brian Sablich, soy de Capital Federal, Argentina.</p>
 
             <!--------------------------PRESENTACION ARCHIVOS------------------------------->
 
-            <div style="display: flex; place-items: center; margin: auto;" class="m-2 px-2 py-3">
+            <div class="m-2 px-2 py-3">
 
-                <div id="archivos" class="container d-flex px-2 py-3">
-                    <div class="d-flex my-3" style="justify-content: start;">
-                        <a href="#presentacion" style="cursor: default; text-decoration: none;" class="archivo bordes p-1"
-                            data-texto="comoLlegue">
-                            <img src="Images/svgFileTxt.svg" style="max-height: 80px; max-width: 80px;" class="img-fluid">
-                                <p class="p-1 mb-0 text-black">
-                                    Hola.txt
-                                </p>
+                <div id="archivos" class="container d-flex justify-content-around px-2 py-3 mb-2">
+
+                    <div class="d-flex my-3 px-2">
+                        <a href="#presentacion" style="cursor: default; text-decoration: none;"
+                            class="archivo bordes p-1" data-title="Camino.txt" data-texto="🧠 Con el paso de los años adquirí madurez
+                            y estabilidad económica que me posibilitó eligir racionalmente a que me quería dedicar.
+                            Opté por la carrera de Licenciatura en Geografía de la UBA, y aunque me llevé muchos
+                            aprendizajes con el pasar de las materias me di cuenta que quería otra cosa.">
+                            <img src="Images/svgFileTxt.svg" style="max-height: 80px; max-width: 80px;"
+                                class="img-fluid mx-1">
+                            <p class="p-1 mb-0 text-black">
+                                Camino.txt
+                            </p>
                         </a>
                     </div>
 
-                    <div>
-                        <a href="#" style="cursor: default;" class="archivo hoverButton"
-                            data-texto="Texto del archivo 2">Archivo 2</a>
+                    <div class="d-flex my-3 px-2">
+                        <a href="#presentacion" style="cursor: default; text-decoration: none;"
+                            class="archivo bordes p-1" data-title="Viraje.txt" data-texto="💻 Luego de años de estudio en Geografía descubrí
+                            la programación... la atracción fue inmediata. Empecé con videos de YouTube, 
+                            luego una diplomatura en desarrollo web en UTN, y por último, entré en la universidad.
+                            Hoy me encuentro a 7 materias de recibirme de Técnico Universitario en Programación, 
+                            también en UTN.">
+                            <img src="Images/svgFileTxt.svg" style="max-height: 80px; max-width: 80px;"
+                                class="img-fluid">
+                            <p class="p-1 mb-0 text-black">
+                                Viraje.txt
+                            </p>
+                        </a>
+                    </div>
+
+                    <div class="d-flex my-3 px-2">
+                        <a href="#presentacion" style="cursor: default; text-decoration: none;"
+                            class="archivo bordes p-1" data-title="Presente.txt" data-texto="👷Con una sólida base técnica y la determinación
+                            de enfrentar nuevos retos, estoy listo para aplicar mis habilidades y conocimientos
+                            en proyectos innovadores. Mi historia no solo es sobre códigos y algoritmos, sino
+                            también sobre transformación, perseverancia y el deseo de alcanzar nuevos
+                            horizontes.">
+                            <img src="Images/svgFileTxt.svg" style="max-height: 80px; max-width: 80px;"
+                                class="img-fluid ms-2">
+                            <p class="p-1 mb-0 text-black">
+                                Presente.txt
+                            </p>
+                        </a>
+                    </div>
+
+                    <div class="d-flex my-3 px-2">
+                        <a href="#presentacion" style="cursor: default; text-decoration: none;"
+                            class="archivo bordes p-1" data-title="Objetivos.txt" data-texto="🎯 Además de seguir formándome,
+                            tanto en programación como en inglés, mi objetivo es encontrar una empresa que me permita aplicar
+                            mis conocimientos y habilidades, contribuyendo al éxito del equipo y creciendo
+                            profesionalmente.">
+                            <img src="Images/svgFileTxt.svg" style="max-height: 80px; max-width: 80px;"
+                                class="img-fluid ms-2">
+                            <p class="p-1 mb-0 text-black">
+                                Objetivos.txt
+                            </p>
+                        </a>
+                    </div>
+                    <div class="d-flex my-3 px-2">
+                        <a href="#presentacion" style="cursor: default; text-decoration: none;"
+                            class="archivo bordes p-1" data-title="SobreMi.txt" data-texto="😸 Soy una persona sencilla
+                            y empática, amante de los michis. Aficionado al gaming y su industria. Disfruto mucho de jugar al futbol
+                            -juego de 5 o de interior- hincha de San Lorenzo. Además me gusta el rock, sobre todo el viejo.">
+                            <img src="Images/svgFileTxt.svg" style="max-height: 80px; max-width: 80px;"
+                                class="img-fluid ms-1">
+                            <p class="p-1 mb-0 text-black">
+                                SobreMi.txt
+                            </p>
+                        </a>
+                    </div>
+                    
+                </div>
+                <!----------------------------CONTENEDOR DEL TEXTO A MOSTRAR----------------------------->
+                <div id="divTexto" class="justify-content-center fs-4">
+                    <div id="cajaTitulo" class="d-flex fs-1 subtitulos">
 
                     </div>
-                    <div id="textoArchivo">
+                    <div id="cajaTexto" class="d-flex fs-4">
 
                     </div>
+                    
+                </div>
+                <!---------------------------FIN CONTENEDOR DEL TEXTO A MOSTRAR--------------------------->
+                <div class="d-flex justify-content-center pt-3 mt-3">
+                    <p class="p-2 fs-5">👋¡Bienvenido a mi espacio digital! Aquí compartiré más sobre mi experiencia,
+                        habilidades y
+                        proyectos.👋</p>
                 </div>
 
-
             </div>
+        </section>
+        <!--------------------------FIN PRESENTACION BASADA EN ARCHIVOS------------------------------->
 
-            <!--------------------------FIN PRESENTACION ARCHIVOS------------------------------->
-
-            <!-- <p class="fondoNegro p-4 fs-5 lh-base">
+        <!-------------------------PRESENTACION EN CELULAR SIN ARCHIVOS---------------------------->
+        <section id="presentacion" class="text-white fondoNegro p-1 m-4 d-block d-md-none">
+            <div class="row p-4 text-center subtitulos">
+                <h2 style="font-weight: bold;">PRESENTACION</h2>
+            </div>
+            <p class="fondoNegro p-4 fs-5 lh-base">
                 😸 Mi nombre completo es Brian Sablich, soy de la Capital Federal, Argentina.<br><br>
                 🧠 Con el paso de los años adquirí madurez y estabilidad económica que me posibilitó eligir
                 racionalmente a que me quería dedicar. Opté por la carrera de Licenciatura en Geografía de la UBA, y
@@ -108,9 +181,9 @@
                 horizontes.<br><br>
                 👋¡Bienvenido a mi espacio digital! Aquí compartiré más sobre mi experiencia, habilidades y
                 proyectos.👋
-            </p> -->
-
+            </p>
         </section>
+        <!-------------------------FIN PRESENTACION EN CELULAR SIN ARCHIVOS---------------------------->
     </div>
     <!-----------------------------------FIN PRESENTACION------------------------------------------->
 
@@ -567,7 +640,7 @@
                     <label style="font-weight: 900;" class="fs-6 " for="floatingTextarea">Mensaje</label>
                 </div>
 
-                <div class="d-flex">
+                <div class="d-flex pb-3">
                     <button style="font-weight: 700;" class="btn btn-primary m-2 mx-auto" type="submit">Enviar</button>
                 </div>
             </form>
