@@ -9,10 +9,13 @@
 .card {
   --bs-card-border-width: 1px !important;
   --bs-card-border-color: #a47ef6 !important;
+  padding: 1px !important;
 }
 
 .card:hover {
   --bs-card-border-width: 2px !important;
+  border-radius: 5px !important;
+  padding: 0px !important;
 }
 
 .btn-primary {
