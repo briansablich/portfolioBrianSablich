@@ -58,6 +58,14 @@ img {
     background-color: rgba(250, 250, 250, 0.7);
 }
 
+.btnComentario {
+    background-color: rgb(164, 126, 246) !important;
+}
+
+.btnComentario:hover {
+    background-color: #7f4af1 !important;
+    border-color: #7f4af1 !important;
+}
 
 .hoverButton:hover {
     background-color: rgba(189, 161, 250, 0.9);
@@ -79,12 +87,16 @@ img {
 }
 
 .pageFooter {
-    margin-top: 70px;
     border-top: 3px solid #888;
     padding-top: 20px;
     padding-bottom: 20px;
     background-color: rgba(250, 250, 250, 0.7);
 }
+
+.cajaComentario {
+    background-color: rgba(0, 0, 0, 0.50);
+}
+
 
 .linksFooter {
     font-weight: bold;
