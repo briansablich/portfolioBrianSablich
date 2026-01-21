@@ -50,97 +50,103 @@
     <!-----------------------------------PRESENTACION------------------------------------------->
     <div class="container">
 
-        <!----------------------PRESENTACION BASADA EN ARCHIVOS----------------->
-        <section id="presentacion" class="text-white fondoNegro p-1 m-4 d-none d-md-block">
+        <!----------------------PRESENTACION BASADA EN GLOBITOS----------------->
+        <section id="presentacion" class="text-white fondoNegro p-1 m-4 d-block">
 
             <div class="row p-4 text-center subtitulos">
                 <h2 style="font-weight: bold;">PRESENTACION</h2>
             </div>
             <p class="pt-2 fs-5">😸 Mi nombre completo es Brian Sablich, soy de Capital Federal, Argentina.</p>
-            <p class="fs-5">Recientemente recibido de la carrera Tecnicatura Universitaria en Programación, en UTN.<br>
-                Actualmente estoy estudiando la Licenciatura en Ciencia de Datos, en la Universidad de la Ciudad de
+            <p class="fs-5">Soy desarrollador recibido de la Tecnicatura Universitaria en Programación, en UTN.<br>
+                Actualmente estoy continuo estudiando la Licenciatura en Ciencia de Datos, en la Universidad de la
+                Ciudad de
                 Buenos Aires.
                 <br>
                 Además estoy aprendiendo inglés de forma particular, siguiendo el plan de estudios del Liceo Cultural
                 Británico<br>
                 Me considero una persona muy curiosa y siempre estoy en constante aprendizaje.
             </p>
-            <p class="fs-7">🔽Para saber más clickea en los archivos🔽</p>
-            <!--------------------------PRESENTACION ARCHIVOS------------------------------->
+
+            <!--------------------------PRESENTACION GLOBITOS------------------------------->
 
             <div class="m-2 px-2 pb-3">
 
-                <div id="archivos" class="container d-flex justify-content-around px-2 pb-1 mb-2">
+                <div id="archivos"
+                    class=" d-flex flex-column flex-md-row justify-content-around align-items-center align-items-md-start px-2 pb-1 mb-2">
 
-                    <div class="d-flex my-3 px-2">
-                        <a href="#presentacion" style="cursor: default; text-decoration: none;"
-                            class="archivo bordes p-1" data-title="Camino.txt" data-texto="🧠 Mi trayectoria comenzó en la Licenciatura en
-                             Geografía de la UBA. Durante esos años, desarrollé una mirada analítica sobre el entorno y adquirí la disciplina
-                            necesaria para el estudio académico. Sin embargo, mi búsqueda de soluciones más dinámicas y técnicas me llevó a
-                            descubrir un nuevo horizonte.">
-                            <img src="Images/svgFileTxt.svg" style="max-height: 80px; max-width: 80px;"
-                                class="img-fluid mx-1" alt="Imagen Archivo">
-                            <p class="p-1 mb-0 text-black">
-                                Camino.txt<br>🔽
-                            </p>
-                        </a>
-                    </div>
+                    <details class="globito-container" name="presentacion">
+                        <summary>
+                            <div class="globito-trigger fw-bold">🧠 Camino</div>
+                        </summary>
+                        <div class="contenido-globito">
+                            Mi trayectoria comenzó en la Licenciatura en
+                            Geografía de la UBA. Durante esos años, desarrollé una mirada analítica sobre el entorno y
+                            adquirí la disciplina
+                            necesaria para el estudio académico. Sin embargo, mi búsqueda de soluciones más dinámicas y
+                            técnicas me llevó a
+                            descubrir un nuevo horizonte.
+                        </div>
+                    </details>
 
-                    <div class="d-flex my-3 px-2">
-                        <a href="#presentacion" style="cursor: default; text-decoration: none;"
-                            class="archivo bordes p-1" data-title="Cambio.txt" data-texto="💻 La curiosidad me llevó a la programación y el
-                        impacto fue inmediato. Lo que empezó como un interés autodidacta se transformó en mi profesión: realicé una Diplomatura
-                        en UTN y recientemente me recibí de Técnico Universitario en Programación. Hoy, sigo evolucionando y especializándome en
-                        Ciencia de Datos, donde mi pasado geográfico y mi presente tecnológico se fusionan.">
-                            <img src="Images/svgFileTxt.svg" style="max-height: 80px; max-width: 80px;"
-                                class="img-fluid" alt="Imagen Archivo">
-                            <p class="p-1 mb-0 text-black">
-                                Cambio.txt<br>🔽
-                            </p>
-                        </a>
-                    </div>
+                    <details class="globito-container" name="presentacion">
+                        <summary>
+                            <div class="globito-trigger fw-bold">💻 Cambio</div>
+                        </summary>
+                        <div class="contenido-globito">
+                            La curiosidad me llevó a la programación y el
+                            impacto fue inmediato. Lo que empezó como un interés autodidacta se transformó en mi
+                            profesión: realicé una Diplomatura
+                            en UTN y recientemente me recibí de Técnico Universitario en Programación. Hoy, sigo
+                            evolucionando y especializándome en
+                            Ciencia de Datos, donde mi pasado geográfico y mi presente tecnológico se fusionan.
+                        </div>
+                    </details>
 
-                    <div class="d-flex my-3 px-2">
-                        <a href="#presentacion" style="cursor: default; text-decoration: none;"
-                            class="archivo bordes p-1" data-title="Presente.txt" data-texto="👷Hoy combino una sólida base técnica con
-                        la experiencia de quien ha sabido reinventarse. Mi enfoque no se limita a escribir código, sino a resolver
-                        problemas con lógica y perseverancia. Estoy listo para aplicar mis habilidades en proyectos innovadores que
-                        busquen un perfil comprometido con la mejora continua.">
-                            <img src="Images/svgFileTxt.svg" style="max-height: 80px; max-width: 80px;"
-                                class="img-fluid ms-2" alt="Imagen Archivo">
-                            <p class="p-1 mb-0 text-black">
-                                Presente.txt<br>🔽
-                            </p>
-                        </a>
-                    </div>
+                    <details class="globito-container" name="presentacion">
+                        <summary>
+                            <div class="globito-trigger fw-bold">👷 Presente</div>
+                        </summary>
+                        <div class="contenido-globito">
+                            Hoy combino una sólida base técnica con
+                            la experiencia de quien ha sabido reinventarse. Mi enfoque no se limita a escribir código,
+                            sino a resolver
+                            problemas con lógica y perseverancia. Estoy listo para aplicar mis habilidades en proyectos
+                            innovadores que
+                            busquen un perfil comprometido con la mejora continua.
+                        </div>
+                    </details>
 
-                    <div class="d-flex my-3 px-2">
-                        <a href="#presentacion" style="cursor: default; text-decoration: none;"
-                            class="archivo bordes p-1" data-title="Objetivos.txt" data-texto="🎯 Mi objetivo es dar el salto al mundo
-                            profesional, integrándome en un equipo donde pueda transformar mi formación técnica en soluciones reales.
-                            Busco profesionalizarme en una empresa con propósito, donde mi trabajo no solo resuelva problemas lógicos,
-                            sino que genere un impacto social positivo. Estoy decidido a aportar mi capacidad analítica y mi compromiso
-                            con el aprendizaje continuo para contribuir al éxito colectivo mientras consolido mi carrera en tecnología.">
-                            <img src="Images/svgFileTxt.svg" style="max-height: 80px; max-width: 80px;"
-                                class="img-fluid ms-2" alt="Imagen Archivo">
-                            <p class="p-1 mb-0 text-black">
-                                Objetivos.txt<br>🔽
-                            </p>
-                        </a>
-                    </div>
-                    <div class="d-flex my-3 px-2">
-                        <a href="#presentacion" style="cursor: default; text-decoration: none;"
-                            class="archivo bordes p-1" data-title="SobreMi.txt" data-texto="😸 Fuera de la terminal, soy un apasionado
-                            de los gatos y la cultura gaming. Mi curiosidad me lleva a desarmar y armar PCs o incursionar en la mecánica.
-                            En la cancha, me encontrás jugando de 5 o de interior, siempre con la misma entrega que le pongo a un proyecto.
-                            Hincha de San Lorenzo y fiel oyente del rock de los 60' y 70'..">
-                            <img src="Images/svgFileTxt.svg" style="max-height: 80px; max-width: 80px;"
-                                class="img-fluid ms-1" alt="Imagen Archivo">
-                            <p class="p-1 mb-0 text-black">
-                                +SobreMi.txt<br>🔽
-                            </p>
-                        </a>
-                    </div>
+                    <details class="globito-container" name="presentacion">
+                        <summary>
+                            <div class="globito-trigger fw-bold">🎯 Objetivos</div>
+                        </summary>
+                        <div class="contenido-globito">
+                            Mi objetivo es dar el salto al mundo
+                            profesional, integrándome en un equipo donde pueda transformar mi formación técnica en
+                            soluciones reales.
+                            Busco profesionalizarme en una empresa con propósito, donde mi trabajo no solo resuelva
+                            problemas lógicos,
+                            sino que genere un impacto social positivo. Estoy decidido a aportar mi capacidad analítica
+                            y mi compromiso
+                            con el aprendizaje continuo para contribuir al éxito colectivo mientras consolido mi carrera
+                            en tecnología.
+                        </div>
+                    </details>
+
+                    <details class="globito-container" name="presentacion">
+                        <summary>
+                            <div class="globito-trigger">😸 +Sobre Mi</div>
+                        </summary>
+                        <div class="contenido-globito">
+                            Fuera de la terminal, soy un apasionado
+                            de los gatos y la cultura gaming. Mi curiosidad me lleva a desarmar y armar PCs o
+                            incursionar en la mecánica.
+                            En la cancha, me encontrás jugando de 5 o de interior, siempre con la misma entrega que le
+                            pongo a un proyecto.
+                            Hincha de San Lorenzo y fiel oyente del rock de los 60' y 70'.
+                        </div>
+                    </details>
+
 
                 </div>
                 <!----------------------------CONTENEDOR DEL TEXTO A MOSTRAR----------------------------->
@@ -164,26 +170,6 @@
         </section>
         <!--------------------------FIN PRESENTACION BASADA EN ARCHIVOS------------------------------->
 
-        <!-------------------------PRESENTACION EN CELULAR SIN ARCHIVOS---------------------------->
-        <section id="presentacion" class="text-white fondoNegro p-1 m-4 d-block d-md-none">
-            <div class="row p-4 text-center subtitulos">
-                <h2 style="font-weight: bold;">PRESENTACION</h2>
-            </div>
-            <p class="fondoNegro p-4 fs-5 lh-base">
-                😸 Mi nombre completo es Brian Sablich, soy de la Capital Federal, Argentina.<br><br>
-                💻Recientemente recibido de la carrera Tecnicatura Universitaria en Programación, en UTN.
-                Actualmente estoy estudiando la Licenciatura en Ciencia de Datos, en la Universidad de la Ciudad de
-                Buenos Aires.<br>
-                Además estoy aprendiendo inglés de forma particular siguiendo el plan de estudios del Liceo Cultural
-                Británico.<br>
-                🤓Soy una persona en constante aprendizaje. Siempre estoy buscando nuevos
-                desafíos, y ahora en particular, estoy buscando mi primera experiencia profesional para una empresa en
-                IT.<br><br>
-                👋¡Bienvenido a mi espacio digital! Aquí compartiré más sobre mi experiencia, habilidades y
-                proyectos.👋
-            </p>
-        </section>
-        <!-------------------------FIN PRESENTACION EN CELULAR SIN ARCHIVOS---------------------------->
     </div>
     <!-----------------------------------FIN PRESENTACION------------------------------------------->
 
