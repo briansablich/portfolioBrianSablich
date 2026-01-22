@@ -199,3 +199,7 @@ img {
         justify-content: center;
     }
 }
+
+.nav-link:hover {
+    background-color: #7f4af1;
+}
