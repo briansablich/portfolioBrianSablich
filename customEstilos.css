@@ -76,7 +76,7 @@ details[open].globito-container {
   box-shadow: 0 4px 10px rgba(127, 74, 241, 0.2);
   border: 2px solid transparent;
   font-weight: bold ;
-  font-size: x-large;
+  font-size: large;
 }
 
 .globito-trigger:hover {
