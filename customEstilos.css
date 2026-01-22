@@ -56,7 +56,7 @@
   margin: 10px;
   cursor: pointer;
   vertical-align: top;
-  animation: float 4s ease-in-out infinite;
+  animation: float 5s ease-in-out infinite;
   transition: all 0.5s ease; /* Transición para el contenedor */
 }
 
@@ -137,3 +137,24 @@ details[open] .contenido-globito {
 
 summary { list-style: none; outline: none; }
 summary::-webkit-details-marker { display: none; }
+
+/* BOTON SCROLL TO TOP*/
+
+#btn-ir-arriba {
+    position: fixed;
+    bottom: 200px;
+    right: 20px;
+    display: none; /* Se oculta por defecto */
+    z-index: 1000; /* Para que esté por encima de carruseles y acordeones */
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    line-height: 1;
+    animation: float 1.5s ease-in-out infinite;
+}
+
+/* Efecto hover suave */
+#btn-ir-arriba:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s;
+}
