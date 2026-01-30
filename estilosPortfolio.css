@@ -68,7 +68,7 @@ img {
 }
 
 .hoverButton:hover {
-    background-color: rgba(189, 161, 250, 0.9);
+    background-color: #bda1fae6;
     border-radius: 5px;
 }
 
@@ -189,7 +189,7 @@ img {
     min-width: 450px;
     margin: auto;
     padding: 1% 2% 1% 2%;
-    border-color: rgb(178, 151, 237);
+    border-color: #b297ed;
     border-style: double;
     color: #fbfbfb;
 
