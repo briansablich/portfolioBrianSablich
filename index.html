@@ -1,1161 +1,1456 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="light">
 
 <head>
-    <meta name="google-site-verification" content="-gzbFYwD9jWw9ATWN8WZZ-4ua3Fi2Z0T-vqVJt3RzRQ" />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de Brian Kevin Sablich Pere, programador, desarrollador web y de sistemas. Conocimimento en:
-    .NET, HTML, CSS, SQL, C#, GitHub, Bootstrap, entre otras tecnologías">
+  <meta name="google-site-verification" content="-gzbFYwD9jWw9ATWN8WZZ-4ua3Fi2Z0T-vqVJt3RzRQ" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Portfolio de Brian Sablich — Desarrollador & Analista de Datos. Java, Spring Boot, Python, SQL, Power BI." />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
 
-    <link rel="stylesheet" href="customEstilos.css">
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['DM Sans', 'sans-serif'],
+            mono: ['DM Mono', 'monospace'],
+          },
+        }
+      }
+    }
+  </script>
 
-    <title>Brian Sablich Pere - Programador</title>
+  <title>Brian Sablich — Desarrollador & Analista de Datos</title>
+
+  <style>
+    body {
+      background-color: #f8f7ff;
+      background-image: radial-gradient(circle, #ddd6fe 1px, transparent 1px);
+      background-size: 28px 28px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .dark body {
+      background-color: #0f0e17;
+      background-image: radial-gradient(circle, #2e1f5e 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f8f7ff;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #c4b5fd;
+      border-radius: 999px;
+    }
+
+    .dark ::-webkit-scrollbar-track {
+      background: #0f0e17;
+    }
+
+    .dark ::-webkit-scrollbar-thumb {
+      background: #6d28d9;
+    }
+
+    /* Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Section title accent */
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 3rem;
+      height: 3px;
+      background: #7c3aed;
+      margin-top: 0.5rem;
+      border-radius: 999px;
+    }
+
+    /* Sidebar */
+    #sidebar {
+      position: fixed;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 50;
+    }
+
+    /* Scroll-to-top */
+    #btnTop {
+      position: fixed;
+      bottom: 2rem;
+      right: 1.5rem;
+      z-index: 50;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    #btnTop.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Nav active */
+    .nav-link.active {
+      background-color: #7c3aed;
+      color: white !important;
+    }
+
+    /* Mobile menu */
+    #mobileMenu {
+      display: none;
+    }
+
+    #mobileMenu.open {
+      display: flex;
+    }
+
+    /* Badge/card hovers */
+    .skill-badge {
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .skill-badge:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.22);
+    }
+
+    .project-card {
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(124, 58, 237, 0.16);
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #7c3aed;
+      box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12);
+    }
+
+    /* Toggle switch */
+    .toggle-track {
+      width: 40px;
+      height: 22px;
+      border-radius: 999px;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.3s;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .toggle-track input {
+      display: none;
+    }
+
+    .toggle-thumb {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: white;
+      transition: transform 0.25s;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    }
+
+    .toggle-track input:checked~.toggle-thumb {
+      transform: translateX(18px);
+    }
+
+    /* ── Accordion chips ── */
+    .chip-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      border: 1.5px solid #c4b5fd;
+      background: white;
+      color: #6d28d9;
+      transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+      user-select: none;
+    }
+
+    .chip-btn:hover {
+      background: #ede9fe;
+      box-shadow: 0 3px 12px rgba(124, 58, 237, 0.18);
+    }
+
+    .chip-btn.active {
+      background: #7c3aed;
+      color: white;
+      border-color: #7c3aed;
+    }
+
+    .chip-btn .chip-arrow {
+      display: inline-block;
+      transition: transform 0.25s;
+      font-size: 0.65rem;
+      opacity: 0.7;
+    }
+
+    .chip-btn.active .chip-arrow {
+      transform: rotate(180deg);
+    }
+
+    .dark .chip-btn {
+      background: rgba(109, 40, 217, 0.15);
+      border-color: #6d28d9;
+      color: #c4b5fd;
+    }
+
+    .dark .chip-btn:hover {
+      background: rgba(109, 40, 217, 0.3);
+    }
+
+    .dark .chip-btn.active {
+      background: #7c3aed;
+      color: white;
+      border-color: #7c3aed;
+    }
+
+    .chip-panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, opacity 0.3s ease, margin 0.3s ease;
+      opacity: 0;
+      margin-top: 0;
+    }
+
+    .chip-panel.open {
+      max-height: 300px;
+      opacity: 1;
+      margin-top: 0.75rem;
+    }
+
+    /* Form state */
+    #formSuccess,
+    #formError {
+      display: none;
+    }
+
+    #formSuccess.show,
+    #formError.show {
+      display: flex;
+    }
+
+    /* Cert hover */
+    .cert-item {
+      transition: background 0.2s;
+    }
+  </style>
 </head>
 
-<body class="fuentes fondo">
-    <div class="container">
-        <header class="text-white p-4">
-            <div class="d-flex justify-content-center align-items-center text-center p-2 mx-4 titulo-nombre bordes">
-                <h1 class="fw-bold fst-italic lh-base pe-3" style="font-size: 4rem;">
-                    <img src="Images/saludoIcono.png" alt="iconoSaludo" class="img-fluid justify-content-center mb-2"
-                        style="max-width:60px; max-height:60px" data-bs-toggle="tooltip" data-bs-placement="left"
-                        data-bs-custom-class="custom-tooltip" data-bs-title="¡Hola!">
-                    Hola, soy Brian
-                </h1>
-                <div class="d-md-flex d-none text-center justify-content-center rounded-circle m-1"
-                    style="max-height: 180px; max-width: 150px; background-color: #7f4af1;">
-                    <img src="Images/pngFotoPerfil.png" class="rounded-circle img-fluid" style="mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
-                    object-fit: cover; max-width: 100%; max-height: 100%;" alt="Foto perfil">
-                </div>
-            </div>
-            <div class="mb-3 mt-5">
-                <p class="fw-bold fst-italic fs-1 h3">Software Developer - Back End <br> Estudiante de Ciencia de Datos
-                </p>
+<body class="font-sans text-gray-800 dark:text-gray-100 antialiased">
 
-            </div>
-        </header>
-    </div>
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside id="sidebar"
+    class="hidden md:flex flex-col items-center gap-4 bg-white/90 dark:bg-gray-900/90 backdrop-blur border-r border-violet-100 dark:border-violet-900 px-2 py-5 shadow-sm rounded-r-xl">
+    <a href="https://github.com/briansablich" target="_blank" title="GitHub"
+      class="p-2 rounded-lg hover:bg-violet-50 dark:hover:bg-violet-900/40 text-violet-400 hover:text-violet-600 transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
+        <path
+          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+      </svg>
+    </a>
+    <a href="https://www.linkedin.com/in/brian-sablich/" target="_blank" title="LinkedIn"
+      class="p-2 rounded-lg hover:bg-violet-50 dark:hover:bg-violet-900/40 text-violet-400 hover:text-violet-600 transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
+        <path
+          d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+      </svg>
+    </a>
+    <a href="#contacto" title="Contacto"
+      class="p-2 rounded-lg hover:bg-violet-50 dark:hover:bg-violet-900/40 text-violet-400 hover:text-violet-600 transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
+        <path
+          d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2zm-2 9.8V4.698l5.803 3.546zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.5 4.5 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586zM16 9.671V4.697l-5.803 3.546.338.208A4.5 4.5 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671" />
+        <path
+          d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791" />
+      </svg>
+    </a>
+    <a href="https://drive.google.com/file/d/1vtfKcJet3DN59Zs2V9OOI2QkHhW9aWzG/view?usp=drive_link" target="_blank"
+      title="CV"
+      class="p-2 rounded-lg hover:bg-violet-50 dark:hover:bg-violet-900/40 text-violet-400 hover:text-violet-600 transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
+        <path
+          d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0m2 5.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-.245S4 12 8 12s5 1.755 5 1.755" />
+      </svg>
+    </a>
+    <button id="sidebarCopy" title="Copiar email"
+      class="p-2 rounded-lg hover:bg-violet-50 dark:hover:bg-violet-900/40 text-violet-400 hover:text-violet-600 transition-colors cursor-pointer">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
+        <path
+          d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1z" />
+        <path
+          d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0z" />
+      </svg>
+    </button>
+  </aside>
 
-    <!------------------------NAV------------------------------------------------->
-    <div class="container">
-        <section id="nav" class="text-white p-1 m-4 d-inline-block d-lg-block">
-            <nav class="navbar navbar-expand-lg navbar-dark fondoNegro">
-                <div class="container-fluid">
+  <!-- ===================== NAVBAR ===================== -->
+  <header
+    class="sticky top-0 z-40 bg-white/90 dark:bg-gray-950/90 backdrop-blur border-b border-violet-100 dark:border-violet-900/60 shadow-sm transition-colors duration-300">
+    <div class="max-w-4xl mx-auto px-6 md:px-10 flex items-center justify-between h-14 gap-4">
+      <span
+        class="font-mono text-violet-600 dark:text-violet-400 font-medium text-sm tracking-tight shrink-0">brian.sablich</span>
 
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-1 flex-1 justify-center">
+        <a href="#presentacion"
+          class="nav-link text-sm font-medium text-violet-700 dark:text-violet-300 hover:text-violet-600 px-3 py-1.5 rounded-full transition-colors"
+          data-i18n="nav_perfil">Perfil</a>
+        <a href="#stack"
+          class="nav-link text-sm font-medium text-violet-700 dark:text-violet-300 hover:text-violet-600 px-3 py-1.5 rounded-full transition-colors"
+          data-i18n="nav_skills">Habilidades</a>
+        <a href="#proyectos"
+          class="nav-link text-sm font-medium text-violet-700 dark:text-violet-300 hover:text-violet-600 px-3 py-1.5 rounded-full transition-colors"
+          data-i18n="nav_projects">Proyectos</a>
+        <a href="#formacion"
+          class="nav-link text-sm font-medium text-violet-700 dark:text-violet-300 hover:text-violet-600 px-3 py-1.5 rounded-full transition-colors"
+          data-i18n="nav_education">Formación</a>
+        <a href="#experiencia"
+          class="nav-link text-sm font-medium text-violet-700 dark:text-violet-300 hover:text-violet-600 px-3 py-1.5 rounded-full transition-colors"
+          data-i18n="nav_exp">Experiencia</a>
+        <a href="#contacto"
+          class="nav-link ml-2 text-sm font-semibold bg-violet-600 text-white px-4 py-1.5 rounded-full hover:bg-violet-700 transition-colors"
+          data-i18n="nav_contact">Contacto</a>
+      </nav>
 
-                    <div class="collapse navbar-collapse justify-content-around" id="navbarNav">
-                        <ul class="navbar-nav text-center">
-                            <li class="nav-item p-2">
-                                <a class="nav-link bordes px-3 mx-2 fw-bold text-white fs-4" aria-current="page"
-                                    href="#">Presentación</a>
-                            </li>
-                            <li class="nav-item p-2">
-                                <a class="nav-link bordes px-3 mx-2 fw-bold text-white fs-4" href="#stack">Stack</a>
-                            </li>
-                            <li class="nav-item p-2">
-                                <a class="nav-link bordes px-3 mx-2 fw-bold text-white fs-4"
-                                    href="#proyectos">Proyectos</a>
-                            </li>
-                            <li class="nav-item p-2">
-                                <a class="nav-link bordes px-3 mx-2 fw-bold text-white fs-4"
-                                    href="#formacion">Formación</a>
-                            </li>
-                            <li class="nav-item p-2">
-                                <a class="nav-link bordes px-3 mx-2 fw-bold text-white fs-4"
-                                    href="#contacto">Contacto</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </section>
-    </div>
-    <!------------------------NAV------------------------------------------------->
-
-    <!-----------------------------------PRESENTACION------------------------------------------->
-    <div class="container">
-
-        <!----------------------PRESENTACION BASADA EN GLOBITOS----------------->
-        <section id="presentacion" class="text-white fondoNegro p-1 m-4 d-block">
-
-            <div class="row p-4 text-center subtitulos">
-                <h2 style="font-weight: bold;">PRESENTACION</h2>
-            </div>
-            <p class="pt-2 fs-5">😸 Mi nombre completo es Brian Sablich, soy de Capital Federal, Argentina.</p>
-            <p class="fs-5">Soy desarrollador recibido de la Tecnicatura Universitaria en Programación, en UTN.<br>
-                Actualmente estoy continuo estudiando la Licenciatura en Ciencia de Datos, en la Universidad de la
-                Ciudad de
-                Buenos Aires.
-                <br>
-                Además estoy aprendiendo inglés de forma particular, siguiendo el plan de estudios del Liceo Cultural
-                Británico<br>
-                Me considero una persona muy curiosa y siempre estoy en constante aprendizaje.
-            </p>
-
-            <!--------------------------PRESENTACION GLOBITOS------------------------------->
-
-            <div class="m-2 px-2 pb-3">
-
-                <div id="archivos"
-                    class=" d-flex flex-column flex-md-row justify-content-around align-items-center align-items-md-start px-2 pb-1 mb-2">
-
-                    <details class="globito-container" name="presentacion">
-                        <summary>
-                            <div class="globito-trigger fw-bold">🧠 Camino</div>
-                        </summary>
-                        <div class="contenido-globito">
-                            Mi trayectoria comenzó en la Licenciatura en
-                            Geografía de la UBA. Durante esos años, desarrollé una mirada analítica sobre el entorno y
-                            adquirí la disciplina
-                            necesaria para el estudio académico. Sin embargo, mi búsqueda de soluciones más dinámicas y
-                            técnicas me llevó a
-                            descubrir un nuevo horizonte.
-                        </div>
-                    </details>
-
-                    <details class="globito-container" name="presentacion">
-                        <summary>
-                            <div class="globito-trigger fw-bold">💻 Cambio</div>
-                        </summary>
-                        <div class="contenido-globito">
-                            La curiosidad me llevó a la programación y el
-                            impacto fue inmediato. Lo que empezó como un interés autodidacta se transformó en mi
-                            profesión: realicé una Diplomatura
-                            en UTN y recientemente me recibí de Técnico Universitario en Programación. Hoy, sigo
-                            evolucionando y especializándome en
-                            Ciencia de Datos, donde mi pasado geográfico y mi presente tecnológico se fusionan.
-                        </div>
-                    </details>
-
-                    <details class="globito-container" name="presentacion">
-                        <summary>
-                            <div class="globito-trigger fw-bold">👷 Presente</div>
-                        </summary>
-                        <div class="contenido-globito">
-                            Hoy combino una sólida base técnica con
-                            la experiencia de quien ha sabido reinventarse. Mi enfoque no se limita a escribir código,
-                            sino a resolver
-                            problemas con lógica y perseverancia. Estoy listo para aplicar mis habilidades en proyectos
-                            innovadores que
-                            busquen un perfil comprometido con la mejora continua.
-                        </div>
-                    </details>
-
-                    <details class="globito-container" name="presentacion">
-                        <summary>
-                            <div class="globito-trigger fw-bold">🎯 Objetivos</div>
-                        </summary>
-                        <div class="contenido-globito">
-                            Mi objetivo es dar el salto al mundo
-                            profesional, integrándome en un equipo donde pueda transformar mi formación técnica en
-                            soluciones reales.
-                            Busco profesionalizarme en una empresa con propósito, donde mi trabajo no solo resuelva
-                            problemas lógicos,
-                            sino que genere un impacto social positivo. Estoy decidido a aportar mi capacidad analítica
-                            y mi compromiso
-                            con el aprendizaje continuo para contribuir al éxito colectivo mientras consolido mi carrera
-                            en tecnología.
-                        </div>
-                    </details>
-
-                    <details class="globito-container" name="presentacion">
-                        <summary>
-                            <div class="globito-trigger">😸 +Sobre Mi</div>
-                        </summary>
-                        <div class="contenido-globito">
-                            Fuera de la terminal, soy un apasionado
-                            de los gatos y la cultura gaming. Mi curiosidad me lleva a desarmar y armar PCs o
-                            incursionar en la mecánica.
-                            En la cancha, me encontrás jugando de 5 o de interior, siempre con la misma entrega que le
-                            pongo a un proyecto.
-                            Hincha de San Lorenzo y fiel oyente del rock de los 60' y 70'.
-                        </div>
-                    </details>
-
-
-                </div>
-                <!----------------------------CONTENEDOR DEL TEXTO A MOSTRAR----------------------------->
-                <div id="divTexto" class="justify-content-center fs-4">
-                    <div id="cajaTitulo" class="d-flex fs-1 subtitulos">
-
-                    </div>
-                    <div id="cajaTexto" class="d-flex fs-4">
-
-                    </div>
-
-                </div>
-                <!---------------------------FIN CONTENEDOR DEL TEXTO A MOSTRAR--------------------------->
-                <div class="d-flex justify-content-center pt-3 mt-3">
-                    <p class="p-2 fs-5">👋¡Bienvenido/a a mi espacio digital! Aquí compartiré más sobre mi experiencia,
-                        habilidades y
-                        proyectos.👋</p>
-                </div>
-
-            </div>
-        </section>
-        <!--------------------------FIN PRESENTACION BASADA EN GLOBITOS------------------------------->
-
-    </div>
-    <!-----------------------------------FIN PRESENTACION------------------------------------------->
-
-    <!-----------------------------------STACK------------------------------------------->
-    <div class="container" id="stack">
-        <section class="fondoNegro text-white p-1 m-4">
-            <div class="row p-4 text-center subtitulos">
-                <h2 style="font-weight: bold;">STACK</h2>
-            </div>
-
-            <div class="row text-center p-4">
-
-                <div class="col-12 col-sm-6 col-md-4 p-4">
-                    <img class="rounded mx-auto fondoVioleta08 p-2 img-fluid" data-bs-toggle="tooltip"
-                        data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="C#"
-                        src="Images/svgCs.svg" alt="ImagenC#">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 p-4">
-                    <img class="rounded mx-auto fondoVioleta08 p-2 img-fluid" data-bs-toggle="tooltip"
-                        data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="JAVA"
-                        src="Images/svgJava.svg" alt="ImagenJava">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 p-4">
-                    <img class="rounded mx-auto fondoVioleta08 p-2 img-fluid" data-bs-toggle="tooltip"
-                        data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title=".NET"
-                        src="Images/svgAspnet.svg" alt="Imagen.NET">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 p-4">
-                    <img class="rounded mx-auto fondoVioleta08 p-2 img-fluid" data-bs-toggle="tooltip"
-                        data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="SQL"
-                        src="Images/svgSql.svg" alt="ImagenSQL">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 p-4">
-                    <img class="rounded mx-auto fondoVioleta08 p-2 img-fluid" data-bs-toggle="tooltip"
-                        data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="BOOTSTRAP"
-                        src="Images/svgBootstrap.svg" alt="ImagenBootstrap">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 p-4">
-                    <img class="rounded mx-auto fondoVioleta08 p-2 img-fluid" data-bs-toggle="tooltip"
-                        data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="HTML"
-                        src="Images/svgHtml.svg" alt="ImagenHtml">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 p-4">
-                    <img class="rounded mx-auto fondoVioleta08 p-2 img-fluid" data-bs-toggle="tooltip"
-                        data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="CSS"
-                        src="Images/svgCss.svg" alt="ImagenCss">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 p-4">
-                    <img class="rounded mx-auto fondoVioleta08 p-2 img-fluid" data-bs-toggle="tooltip"
-                        data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="JAVASCRIPT"
-                        src="Images/svgJavascript.svg" alt="imagenJavascript">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 p-4">
-                    <img class="rounded mx-auto fondoVioleta08 p-2 img-fluid" data-bs-toggle="tooltip"
-                        data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="GITHUB"
-                        src="Images/svgGithub.svg" alt="ImagenGithub">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 p-4">
-                    <img class="rounded mx-auto fondoVioleta08 p-2 img-fluid" data-bs-toggle="tooltip"
-                        data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="SPRING BOOT"
-                        src="Images/svgSpringBoot.svg" alt="ImagenSpringBoot">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 p-4">
-                    <img class="rounded mx-auto fondoVioleta08 p-2 img-fluid" data-bs-toggle="tooltip"
-                        data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="DOCKER"
-                        src="Images/svgDocker.svg" alt="ImagenDocker">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 p-4">
-                    <img class="rounded mx-auto fondoVioleta08 p-2 img-fluid" data-bs-toggle="tooltip"
-                        data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="POSTMAN"
-                        src="Images/svgPostman.svg" alt="ImagenPostman">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 p-4">
-                    <img class="rounded mx-auto fondoVioleta08 p-2 img-fluid" data-bs-toggle="tooltip"
-                        data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="PYTHON"
-                        src="Images/svgPython.svg" alt="ImagenPython">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 p-4">
-                    <img class="rounded mx-auto fondoVioleta08 p-2 img-fluid" data-bs-toggle="tooltip"
-                        data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="POWER BI"
-                        src="Images/svgPowerBi.svg" alt="ImagenPowerBi">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 p-4">
-                    <img class="rounded mx-auto fondoVioleta08 p-2 img-fluid" data-bs-toggle="tooltip"
-                        data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="GOOGLE CLOUD"
-                        src="Images/svgGoogleCloud.svg" alt="ImagenGoogleCloud">
-                </div>
-
-            </div>
-
-        </section>
-    </div>
-    <!-----------------------------------FIN STACK------------------------------------------->
-
-    <!-----------------------------------PROYECTO------------------------------------------->
-    <div class="container" id="proyectos">
-        <section class="fondoNegro text-white p-1 m-4">
-            <div class="row p-4 text-center subtitulos">
-                <h2 style="font-weight: bold;">PROYECTOS</h2>
-            </div>
-            <div class="row">
-
-                <!--ACCORDION BODY-->
-                <div class="accordion accordion-flush mb-5" id="acordeonProyectos">
-
-                    <!--ACCORDION 1-->
-                    <div class="accordion-item mx-1">
-                        <h2 class="accordion-header">
-                            <button title="Boton Acordion Sistema Transporte"
-                                class="accordion-button collapsed bordesTop hoverButton" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true"
-                                aria-controls="flush-collapseOne">
-                                Sistema Gestión de Transporte - (C# ASP.NET - SQLSERVER)
-                            </button>
-                        </h2>
-                        <div id="flush-collapseOne" class="accordion-collapse collapse mb-2 py-2"
-                            data-bs-parent="#acordeonProyectos">
-                            <div class="accordion-body">
-                                <!--CARROUSEL ACCORDION 1-->
-                                <div class="carousel-container d-none d-sm-block">
-                                    <div id="carousel1" class="carousel slide">
-                                        <div class="carousel-inner">
-                                            <div class="carousel-item active">
-                                                <img src="Images/proyeTransporte/imagenMainTransporte.png"
-                                                    class="d-flex w-100 h-100 img-fluid" alt="imagenMainTransporte">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="Images/proyeTransporte/imagenPantallaAdminTransporte.png"
-                                                    class="d-flex w-100 h-100 img-fluid"
-                                                    alt="imagenPantallaAdminTransporte">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="Images/proyeTransporte/imagenPantallaChoferTransporte.png"
-                                                    class="d-flex w-100 h-100 img-fluid"
-                                                    alt="imagenPantallaChoferTransporte">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="Images/proyeTransporte/imagenProyectosTransporte.png"
-                                                    class="d-flex w-100 h-100 img-fluid"
-                                                    alt="imagenProyectosTransporte">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="Images/proyeTransporte/imagenSqlTransporte.png"
-                                                    class="d-flex w-100 h-100 img-fluid" alt="imagenSqlTransporte">
-                                            </div>
-                                        </div>
-                                        <button title="Boton Carrusel Previo Sistema Transporte"
-                                            class="carousel-control-prev" type="button" data-bs-target="#carousel1"
-                                            data-bs-slide="prev">
-                                            <span class="carousel-control-prev-icon fondoVioletaOscuro"
-                                                aria-hidden="true"></span>
-                                            <span class="visually-hidden">Previous</span>
-                                        </button>
-                                        <button title="Boton Carrusel Next Sistema Transporte"
-                                            class="carousel-control-next ps-4 ms-4" type="button"
-                                            data-bs-target="#carousel1" data-bs-slide="next">
-                                            <span class="carousel-control-next-icon fondoVioletaOscuro"
-                                                aria-hidden="true"></span>
-                                            <span class="visually-hidden">Next</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--HASTA ACA CARROUSEL ACCORDION 1-->
-                            <div class="text-white text-center fondoVioleta p-4 mx-4 mb-2">
-                                <h4>ASP.NET + C# + SQL + BOOTSTRAP + VISUAL STUDIO + GITHUB</h4>
-                                <p>
-                                    Desarrollado de forma colaborativa por un equipo de tres personas mediante GitHub,
-                                    este sistema integral resuelve la complejidad logística de las agencias de
-                                    transporte centralizando la gestión de flotas y servicios en una plataforma robusta.
-                                    Implementamos una arquitectura en C# y ASP.NET con roles de seguridad para
-                                    administradores y choferes, garantizando la integridad de los datos en SQL Server
-                                    mediante relaciones precisas entre vehículos, clientes y viajes. La solución
-                                    optimiza la operatividad diaria mediante filtros de búsqueda avanzada y la
-                                    visualización de rutas georreferenciadas, facilitando la toma de decisiones y el
-                                    seguimiento de tareas en tiempo real.
-                                </p>
-                                <a target="_blank"
-                                    class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover fw-bold"
-                                    href="https://github.com/matinicotra/TP-SistemaGestion-AgenciaTransporte">
-                                    Repositorio: Sistema Gestión de Transporte</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--HASTA ACA ACCORDION 1-->
-
-                    <!--ACCORDION 2-->
-                    <div class="accordion-item mx-1">
-                        <h2 class="accordion-header">
-                            <button title="Boton Acordion Sistema Articulos"
-                                class="accordion-button collapsed hoverButton" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseTwo" aria-expanded="false"
-                                aria-controls="flush-collapseTwo">
-                                Sistema Gestión de Articulos - (C# WINFORM - SQLSERVER)
-                            </button>
-                        </h2>
-                        <div id="flush-collapseTwo" class="accordion-collapse collapse py-2 mb-2"
-                            data-bs-parent="#acordeonProyectos">
-                            <div class="accordion-body">
-                                <!--CARROUSEL ACCORDION 2-->
-                                <div class="carousel-container d-none d-sm-block">
-                                    <div id="carousel2" class="carousel slide">
-                                        <div class="carousel-inner" style="height: 400px;">
-                                            <div class="carousel-item active">
-                                                <img src="Images/proyeArticulos/imagenMainArticulos.png"
-                                                    class="d-flex w-100 h-100 img-fluid" alt="imagenMainArticulos">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="Images/proyeArticulos/imagenAgregarArticulos.png"
-                                                    class="d-flex w-100 h-100 img-fluid" alt="imagenAgregarArticulos">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="Images/proyeArticulos/imagenDetalleArticulos.png"
-                                                    class="d-flex w-100 h-100 img-fluid" alt="imagenDetalleArticulos">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="Images/proyeArticulos/imagenFiltroArticulos.png"
-                                                    class="d-flex w-100 h-100 img-fluid" alt="imagenFiltroArticulos">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="Images/proyeArticulos/imagenCodigoArticulos.png"
-                                                    class="d-flex w-100 h-100 img-fluid" alt="imagenCodigoArticulos">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="Images/proyeArticulos/imagenBBDDArticulos.png"
-                                                    class="d-flex w-100 h-100 img-fluid" alt="imagenBBDDArticulos">
-                                            </div>
-                                        </div>
-                                        <button title="Boton Carrusel Previo Sistema Articulos"
-                                            class="carousel-control-prev" type="button" data-bs-target="#carousel2"
-                                            data-bs-slide="prev">
-                                            <span class="carousel-control-prev-icon fondoVioletaOscuro"
-                                                aria-hidden="true"></span>
-                                            <span class="visually-hidden">Previous</span>
-                                        </button>
-                                        <button title="Boton Carrusel Next Sistema Articulos"
-                                            class="carousel-control-next ps-4 ms-4" type="button"
-                                            data-bs-target="#carousel2" data-bs-slide="next">
-                                            <span class="carousel-control-next-icon fondoVioletaOscuro"
-                                                aria-hidden="true"></span>
-                                            <span class="visually-hidden">Next</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--HASTA ACA CARROUSEL ACCORDION 2-->
-                            <div class="text-white text-center fondoVioleta p-4 mx-4 mb-2">
-                                <h4>WINFORM .NET + C# + SQL + VISUAL STUDIO + GITHUB</h4>
-                                <p>
-                                    Este sistema de gestión de inventario, desarrollado colaborativamente por un equipo
-                                    de tres personas mediante GitHub, centraliza la administración de catálogos en un
-                                    entorno de escritorio robusto basado en C# y WinForms. La solución resuelve el
-                                    desafío del control de stock mediante la implementación de un modelo relacional en
-                                    SQL Server que integra el alta, baja y modificación de artículos con soporte para
-                                    carga múltiple de imágenes. Optimizamos la experiencia de usuario incorporando
-                                    filtros de búsqueda avanzada y criterios de ordenamiento personalizados, lo que
-                                    permite un manejo ágil, preciso y escalable de grandes volúmenes de productos.
-                                </p>
-                                <a target="_blank"
-                                    class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover fw-bold"
-                                    href="https://github.com/Julycen97/tp-winform-equipo-13">
-                                    Repositorio: Sistema Gestión de Articulos</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--HASTA ACA ACCORDION 2-->
-
-                    <!--ACCORDION 3-->
-                    <div class="accordion-item mx-1">
-                        <h2 class="accordion-header">
-                            <button title="Boton Acordion Sistema Bancario"
-                                class="accordion-button collapsed hoverButton" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseThree" aria-expanded="false"
-                                aria-controls="flush-collapseThree">
-                                Sistema Bancario - (JAVA SERVLET - MYSQL)
-                            </button>
-                        </h2>
-                        <div id="flush-collapseThree" class="accordion-collapse collapse mb-2 py-2"
-                            data-bs-parent="#acordeonProyectos">
-                            <div class="accordion-body">
-                                <!--CARROUSEL ACCORDION 3-->
-                                <div class="carousel-container d-none d-sm-block">
-                                    <div id="carousel3" class="carousel slide">
-                                        <div class="carousel-inner" style="height: 400px;">
-                                            <div class="carousel-item active">
-                                                <img src="Images/proyeSistemaBanco/imagenSBPortal.png"
-                                                    class="d-flex w-100 h-100 img-fluid" alt="imagenSBPortal">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="Images/proyeSistemaBanco/imagenSBCodigo.png"
-                                                    class="d-flex w-100 h-100 img-fluid" alt="imagenSBCodigo">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="Images/proyeSistemaBanco/imagenSBCodigo2.png"
-                                                    class="d-flex w-100 h-100 img-fluid" alt="imagenSBCodigo2">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="Images/proyeSistemaBanco/imagenSBSesionFallida.png"
-                                                    class="d-flex w-100 h-100 img-fluid" alt="imagenSBSesionFallida">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="Images/proyeSistemaBanco/imagenSBDer.png"
-                                                    class="d-flex w-100 h-100 img-fluid" alt="imagenSBDer">
-                                            </div>
-                                        </div>
-                                        <button title="Boton Carrusel Previo Sistema Bancario"
-                                            class="carousel-control-prev" type="button" data-bs-target="#carousel3"
-                                            data-bs-slide="prev">
-                                            <span class="carousel-control-prev-icon fondoVioletaOscuro"
-                                                aria-hidden="true"></span>
-                                            <span class="visually-hidden">Previous</span>
-                                        </button>
-                                        <button title="Boton Carrusel Next Sistema Bancario"
-                                            class="carousel-control-next ps-4 ms-4" type="button"
-                                            data-bs-target="#carousel3" data-bs-slide="next">
-                                            <span class="carousel-control-next-icon fondoVioletaOscuro"
-                                                aria-hidden="true"></span>
-                                            <span class="visually-hidden">Next</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--HASTA ACA CARROUSEL ACCORDION 3-->
-                            <div class="text-white text-center fondoVioleta p-4 mx-4 mb-2">
-                                <h4>JAVA + SERVLET + CSS + MYSQL + ECLIPSE</h4>
-                                <p>
-                                    Este sistema de gestión financiera, desarrollado colaborativamente por un equipo de
-                                    cinco personas, simula una arquitectura bancaria a escala centrada en la integridad
-                                    y seguridad transaccional mediante Java Servlets. La solución resuelve la
-                                    complejidad de las operaciones monetarias implementando un modelo robusto en MySQL,
-                                    donde se aplicaron triggers, restricciones y validaciones a nivel de base de datos
-                                    para garantizar la consistencia en transferencias y movimientos de cuentas.
-                                    Optimizamos la administración operativa mediante un sistema de ABM de clientes y
-                                    herramientas de filtrado avanzado, logrando una plataforma eficiente que asegura el
-                                    cumplimiento de las reglas de negocio en cada transacción.
-                                </p>
-                                <a target="_blank"
-                                    class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover fw-bold"
-                                    href="https://github.com/briansablich/Sistema-Bancario-Final">
-                                    Repositorio: Sistema Bancario</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--HASTA ACA ACCORDION 3-->
-
-                    <!--ACCORDION 4-->
-                    <div class="accordion-item mx-1">
-                        <h2 class="accordion-header">
-                            <button title="Boton Acordion Portfolio Brian"
-                                class="accordion-button collapsed hoverButton" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseFour" aria-expanded="false"
-                                aria-controls="flush-collapseFour">
-                                Portfolio Brian - (HTML + CSS + JS)
-                            </button>
-                        </h2>
-                        <div id="flush-collapseFour" class="accordion-collapse collapse mb-2 py-2"
-                            data-bs-parent="#acordeonProyectos">
-                            <div class="accordion-body">
-                                <!--CARROUSEL ACCORDION 4-->
-                                <div class="carousel-container d-none d-sm-block">
-                                    <div id="carousel4" class="carousel slide">
-                                        <div class="carousel-inner" style="height: 400px;">
-                                            <div class="carousel-item active">
-                                                <img src="Images/ProyePortfolio/imagenRendimiento.png"
-                                                    class="d-flex w-100 h-100 img-fluid"
-                                                    alt="imagenPortfolioRendimiento">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="Images/ProyePortfolio/imagenCodigo.png"
-                                                    class="d-flex w-100 h-100 img-fluid" alt="imagenPortfolioCodigo">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="Images/ProyePortfolio/imagenDominio.png"
-                                                    class="d-flex w-100 h-100 img-fluid" alt="imagenPortfolioDominio">
-                                            </div>
-                                        </div>
-                                        <button title="Boton Carrusel Previo Portfolio Brian"
-                                            class="carousel-control-prev" type="button" data-bs-target="#carousel4"
-                                            data-bs-slide="prev">
-                                            <span class="carousel-control-prev-icon fondoVioletaOscuro"
-                                                aria-hidden="true"></span>
-                                            <span class="visually-hidden">Previous</span>
-                                        </button>
-                                        <button title="Boton Carrusel Next Portfolio Brian"
-                                            class="carousel-control-next ps-4 ms-4" type="button"
-                                            data-bs-target="#carousel4" data-bs-slide="next">
-                                            <span class="carousel-control-next-icon fondoVioletaOscuro"
-                                                aria-hidden="true"></span>
-                                            <span class="visually-hidden">Next</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--HASTA ACA CARROUSEL ACCORDION 4-->
-                            <div class="text-white text-center fondoVioleta p-4 mx-4">
-                                <h4>HTML + CSS + SASS + BOOTSTRAP + JAVASCRIPT + VISUAL STUDIO + CONEXIÓN DE DOMINIO
-                                    PROPIO + GITHUB + IA (GEMINI PRO)</h4>
-                                <p>
-                                    Este portfolio profesional, diseñado y desarrollado integralmente de forma
-                                    individual, funciona como una plataforma centralizada para exhibir mi trayectoria
-                                    técnica y proyectos en Ciencia de Datos y programación. La solución resuelve el
-                                    desafío de la presencia digital mediante una interfaz dinámica construida con HTML,
-                                    CSS y Bootstrap, optimizada para ofrecer una navegación fluida y responsiva. Para
-                                    garantizar un estándar profesional, implementé el despliegue mediante Vercel
-                                    configurando la gestión de DNS para un dominio personalizado, lo que asegura una
-                                    alta disponibilidad y un entorno de producción estable para mi marca personal.
-                                </p>
-                                <a target="_blank"
-                                    class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover fw-bold"
-                                    href="https://github.com/briansablich/portfolioBrianSablich.git">
-                                    Repositorio: Portfolio Brian</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--HASTA ACA ACCORDION 4-->
-
-                    <!--ACCORDION 5-->
-                    <div class="accordion-item mx-1">
-                        <h2 class="accordion-header">
-                            <button title="Boton Acordion Clinica Veterinaria"
-                                class="accordion-button collapsed hoverButton" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseFive" aria-expanded="false"
-                                aria-controls="flush-collapseFive">
-                                Clinica Veterinaria - (SPRINGBOOT - DOCKER - MYSQL)
-                            </button>
-                        </h2>
-                        <div id="flush-collapseFive" class="accordion-collapse collapse mb-2 py-2"
-                            data-bs-parent="#acordeonProyectos">
-                            <div class="accordion-body">
-                                <!--CARROUSEL ACCORDION 5-->
-                                <div class="carousel-container d-none d-sm-block">
-                                    <div id="carousel5" class="carousel slide">
-                                        <div class="carousel-inner" style="height: 400px;">
-                                            <div class="carousel-item active">
-                                                <img src="Images/proyeClinicaVeterinaria/imagenCodigo.png"
-                                                    class="d-flex w-100 h-100 img-fluid"
-                                                    alt="imagenClinicaVeterinariaCodigo">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="Images/proyeClinicaVeterinaria/imagenDokcerDesktop.png"
-                                                    class="d-flex w-100 h-100 img-fluid"
-                                                    alt="imagenClinicaVeterinariaDockerDesktop">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="Images/proyeClinicaVeterinaria/imagenDokcerUp.png"
-                                                    class="d-flex w-100 h-100 img-fluid"
-                                                    alt="imagenClinicaVeterinariaDockerUp">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="Images/proyeClinicaVeterinaria/imagenPostMan.png"
-                                                    class="d-flex w-100 h-100 img-fluid"
-                                                    alt="imagenClinicaVeterinariaPostman">
-                                            </div>
-                                        </div>
-                                        <button title="Boton Carrusel Previo Clinica Veterinaria"
-                                            class="carousel-control-prev" type="button" data-bs-target="#carousel5"
-                                            data-bs-slide="prev">
-                                            <span class="carousel-control-prev-icon fondoVioletaOscuro"
-                                                aria-hidden="true"></span>
-                                            <span class="visually-hidden">Previous</span>
-                                        </button>
-                                        <button title="Boton Carrusel Next Clinica Veterinaria"
-                                            class="carousel-control-next ps-4 ms-4" type="button"
-                                            data-bs-target="#carousel5" data-bs-slide="next">
-                                            <span class="carousel-control-next-icon fondoVioletaOscuro"
-                                                aria-hidden="true"></span>
-                                            <span class="visually-hidden">Next</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--HASTA ACA CARROUSEL ACCORDION 5-->
-                            <div class="text-white text-center fondoVioleta p-4 mx-4">
-                                <h4>JAVA + SPRING BOOT + APIS REST + MVC + DOCKER
-                                    + HIBERNATE + MYSQL + POSTMAN + GITHUB + NETBEANS</h4>
-                                <p>
-                                    Este ecosistema de servicios para gestión veterinaria, desarrollado de forma
-                                    individual, implementa una arquitectura RESTful robusta utilizando Spring Boot para
-                                    centralizar el control operativo de pacientes y consultas. La solución resuelve el
-                                    desafío de la persistencia y disponibilidad de datos mediante operaciones CRUD
-                                    optimizadas, garantizando la escalabilidad del sistema a través de su despliegue en
-                                    contenedores Docker. Para asegurar la fiabilidad de los endpoints, realicé pruebas
-                                    exhaustivas de integración y validación con Postman, logrando una API eficiente,
-                                    documentada y lista para entornos de producción modernos.
-                                </p>
-                                <a target="_blank"
-                                    class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover fw-bold"
-                                    href="https://github.com/briansablich/clinicaVeterinaria.git">
-                                    Repositorio: Clinica Veterinaria</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--HASTA ACA ACCORDION 5-->
-
-                    <!--ACCORDION 6-->
-                    <div class="accordion-item mx-1">
-                        <h2 class="accordion-header">
-                            <button title="Boton Acordion Politicas de Genero"
-                                class="accordion-button collapsed hoverButton" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseSix" aria-expanded="false"
-                                aria-controls="flush-collapseSix">
-                                Análisis Políticas de Género - (POWER BI - PYTHON - EXCEL)
-                            </button>
-                        </h2>
-                        <div id="flush-collapseSix" class="accordion-collapse collapse mb-2 py-2"
-                            data-bs-parent="#acordeonProyectos">
-                            <div class="accordion-body">
-                                <!--CARROUSEL ACCORDION 6-->
-                                <div class="carousel-container d-none d-sm-block">
-                                    <div id="carousel6" class="carousel slide">
-                                        <div class="carousel-inner" style="height: 400px;">
-                                            <div class="carousel-item active">
-                                                <img src="Images/proyePoliticasGenero/imagenGraficos1.png"
-                                                    class="d-flex w-100 h-100 img-fluid"
-                                                    alt="imagenClinicaVeterinariaCodigo">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="Images/proyePoliticasGenero/imagenGraficos2.png"
-                                                    class="d-flex w-100 h-100 img-fluid"
-                                                    alt="imagenClinicaVeterinariaDockerDesktop">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="Images/proyePoliticasGenero/imagenPowerQuery.png"
-                                                    class="d-flex w-100 h-100 img-fluid"
-                                                    alt="imagenClinicaVeterinariaDockerUp">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="Images/proyePoliticasGenero/imagenGcolab.png"
-                                                    class="d-flex w-100 h-100 img-fluid"
-                                                    alt="imagenClinicaVeterinariaPostman">
-                                            </div>
-                                        </div>
-                                        <button title="Boton Carrusel Previo Politicas de Genero"
-                                            class="carousel-control-prev" type="button" data-bs-target="#carousel6"
-                                            data-bs-slide="prev">
-                                            <span class="carousel-control-prev-icon fondoVioletaOscuro"
-                                                aria-hidden="true"></span>
-                                            <span class="visually-hidden">Previous</span>
-                                        </button>
-                                        <button title="Boton Carrusel Next Politicas de Genero"
-                                            class="carousel-control-next ps-4 ms-4" type="button"
-                                            data-bs-target="#carousel6" data-bs-slide="next">
-                                            <span class="carousel-control-next-icon fondoVioletaOscuro"
-                                                aria-hidden="true"></span>
-                                            <span class="visually-hidden">Next</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--HASTA ACA CARROUSEL ACCORDION 6-->
-                            <div class="text-white text-center fondoVioleta p-4 mx-4">
-                                <h4>POWER BI - POWER QUERY - GOOGLE COLAB - PYTHON - EXCEL - .CSV - IA (GEMINI PRO)</h4>
-                                <p>
-                                    Este proyecto de análisis federal sobre políticas de género, desarrollado de forma
-                                    colaborativa, transforma datos públicos complejos en un ecosistema de visualización
-                                    estratégica utilizando Python (Pandas, NumPy, Matplotlib) y Power BI. La solución
-                                    abordó el desafío de la
-                                    fragmentación de datos mediante un proceso riguroso de ETL ejecutado en Google
-                                    Colab, donde automatizamos la limpieza de archivos CSV y Excel para garantizar la
-                                    integridad del análisis por provincia. Mediante el uso avanzado de Power Query,
-                                    logramos modelar indicadores clave que permiten identificar disparidades regionales
-                                    y tendencias críticas, facilitando una herramienta de toma de decisiones basada en
-                                    evidencia para el diseño de políticas públicas más equitativas.
-                                </p>
-                                <a target="_blank"
-                                    class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover fw-bold"
-                                    href="https://colab.research.google.com/drive/1Vufliz1qlYwpxuQlBeFkmO3oMWcWKwZ1?usp=sharing">
-                                    Colab: Análisis de políticas de género</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--HASTA ACA ACCORDION 6-->
-
-                </div>
-                <!--HASTA ACA ACCORDION BODY-->
-            </div>
-
-        </section>
-    </div>
-    <!-----------------------------------FIN PROYECTO------------------------------------------->
-
-    <!-----------------------------------FORMACION------------------------------------------->
-    <div class="container" id="formacion">
-        <section class="fondoNegro text-white p-1 m-4">
-            <div class="row p-4 text-center subtitulos">
-                <h2 style="font-weight: bold;">FORMACION</h2>
-            </div>
-            <div class="row d-flex p-4 text-center justify-content-center">
-                <div class="col-12 col-md-6 col-lg-5 d-flex justify-content-center">
-                    <div class="card m-2" style="max-width: 18rem;">
-                        <div style="font-weight: 700;" class="card-header">2025-Cursando</div>
-                        <div class="card-body">
-                            <p class="card-title fw-bold h5">Licenciatura en Ciencia de Datos</p>
-                            <p class="card-text fst-italic">Universidad de la Ciudad de Buenos Aires<br> Ciudad
-                                Autónoma de Buenos Aires, Argentina.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-5 d-flex justify-content-center">
-                    <div class="card m-2" style="max-width: 18rem;">
-                        <div style="font-weight: 700;" class="card-header">2024-Cursando</div>
-                        <div class="card-body">
-                            <p class="card-title fw-bold h5">Idioma Inglés - Elementary Level</p>
-                            <p class="card-text fst-italic">Liceo Cultural Británico<br> Ciudad
-                                Autónoma de Buenos Aires, Argentina.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-5  d-flex justify-content-center">
-                    <a href="https://drive.google.com/file/d/1OsgQtHVVw4_-7Oap0j-iE6ku8uX2Nb_p/view?usp=sharing"
-                        target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
-                        <div class="card m-2" style="max-width: 18rem;">
-                            <div style="font-weight: 700;" class="card-header">2022-2024</div>
-                            <div class="card-body">
-                                <p class="card-title fw-bold h5">Tecnicatura Universitaria en Programación</p>
-                                <p class="card-text fst-italic"><br>FRGP, Universidad Tecnológica
-                                    Nacional.<br>Buenos Aires,
-                                    Argentina.</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-5 d-flex justify-content-center">
-                    <div class="card m-2" style="max-width: 18rem;">
-                        <div style="font-weight: 700;" class="card-header">2015-2019<br>(No concluida)</div>
-                        <div class="card-body">
-                            <p class="card-title fw-bold h5">Licenciatura en Geografía</p>
-                            <p class="card-text fst-italic">Facultad de Filosofía y Letras, Universidad de Buenos
-                                Aires.<br> Ciudad
-                                Autónoma de Buenos Aires, Argentina.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!----------------MAS CURSOS Y CERTIFICACIONES------------------------------->
-                <div class="accordion accordion-flush d-flex justify-content-center pt-2 col-12 col-md-8"
-                    id="acordeonCursos">
-                    <div class="accordion-item mx-1 my-2 bordes w-100">
-                        <h2 class="accordion-header">
-                            <button title="Más cursos y certificaciones"
-                                class="accordion-button collapsed bordes hoverButton" type="button"
-                                data-bs-toggle="collapse" aria-expanded="true" data-bs-target="#acordeonCursosItem"
-                                aria-controls="acordeonCursosItem"
-                                style="background-color: #7f4af1; color: white; font-weight: 500;">
-                                <i class="bi bi-patch-check me-2"></i> Más Cursos y Certificaciones
-                            </button>
-                        </h2>
-                        <div class="accordion-collapse collapse" id="acordeonCursosItem"
-                            data-bs-parent="#acordeonCursos">
-                            <div class="accordion-body p-0">
-                                <div class="list-group list-group-flush">
-
-                                    <a href="https://drive.google.com/file/d/1GK8-zMdON555WGt_qSlfxG0dEW1lT_h5/view?usp=sharing"
-                                        class="list-group-item list-group-item-action py-3"
-                                        style="border-left: 5px solid #b297ed !important; border: 1px solid #b297ed;"
-                                        target="_blank">
-                                        <div class="d-flex w-100 justify-content-between align-items-center">
-                                            <h6 class="mb-1 fw-bold text-dark">Desarrollo de API's con SpringBoot</h6>
-                                            <span class="badge rounded-pill bg-light text-dark border">2025</span>
-                                        </div>
-                                        <p class="mb-1 small text-muted">TodoCode Academy</p>
-                                        <small class="text-secondary fst-italic">Backend & Microservicios</small>
-                                    </a>
-
-                                    <a href="https://www.skills.google/public_profiles/7adebf99-cf11-441c-8aa8-3c0fc11dc52d/badges/9310413"
-                                        class="list-group-item list-group-item-action py-3"
-                                        style="border-left: 5px solid #7f4af1 !important; border: 1px solid #7f4af1;"
-                                        target="_blank">
-                                        <div class="d-flex w-100 justify-content-between align-items-center">
-                                            <h6 class="mb-1 fw-bold text-dark">Google Cloud Computing & Digital Leader
-                                            </h6>
-                                            <span class="badge rounded-pill bg-light text-dark border">2024</span>
-                                        </div>
-                                        <p class="mb-1 small text-muted">Google Cloud Skills Boost</p>
-                                        <small class="text-secondary fst-italic">Infraestructura y Fundamentos
-                                            Cloud</small>
-                                    </a>
-
-                                    <a href="https://drive.google.com/file/d/1SJBqmmGN7GcZsMXn-iosIPcxgz7dtDis/view?usp=sharing"
-                                        class="list-group-item list-group-item-action py-3"
-                                        style="border-left: 5px solid #b297ed !important; border: 1px solid #b297ed;"
-                                        target="_blank">
-                                        <div class="d-flex w-100 justify-content-between align-items-center">
-                                            <h6 class="mb-1 fw-bold text-dark">Programación en JavaScript</h6>
-                                            <span class="badge rounded-pill bg-light text-dark border">2024</span>
-                                        </div>
-                                        <p class="mb-1 small text-muted">Academia BA Emprende Digital</p>
-                                        <small class="text-secondary fst-italic">Fundamentos de JavaScript</small>
-                                    </a>
-
-                                    <a href="https://drive.google.com/file/d/1WhKcwMrr9vegB9vxXLkjgQ_GXFnk2BDU/view?usp=drive_link"
-                                        class="list-group-item list-group-item-action py-3"
-                                        style="border-left: 5px solid #7f4af1 !important; border: 1px solid #7f4af1;"
-                                        target="_blank">
-                                        <div class="d-flex w-100 justify-content-between align-items-center">
-                                            <h6 class="mb-1 fw-bold text-dark">Diplomatura en Programación Web FullStack
-                                            </h6>
-                                            <span class="badge rounded-pill bg-light text-dark border">2021</span>
-                                        </div>
-                                        <p class="mb-1 small text-muted">Universidad Tecnológica Nacional (UTN)</p>
-                                        <small class="text-secondary fst-italic">HTML, CSS, Bootstrap & PHP</small>
-                                    </a>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!------------------------MAS CURSOS Y CERTIFICACIONES FIN--------------------------------------------->
-
-            </div>
-        </section>
-    </div>
-    <!-----------------------------------FIN FORMACION------------------------------------------->
-
-    <!-----------------------------------CONTACTO------------------------------------------->
-    <div id="contacto" class="container">
-        <section class="fondoNegro text-white p-1 m-4">
-            <div class="row p-4 text-center subtitulos">
-                <h2 style="font-weight: bold;">CONTACTO</h2>
-            </div>
-
-            <form class="form-floating" action="https://formspree.io/f/xwkgpvrz" method="POST">
-                <div class="form-floating text-black col-6 mx-auto my-3">
-                    <input type="email" class="form-control fs-5" style="max-width: 300px;" id="email" name="email"
-                        autocomplete="email" required data-bs-toggle="tooltip" data-bs-placement="top"
-                        data-bs-custom-class="custom-tooltip" data-bs-title="e-Mail">
-                    <label class="fs-6" style="font-weight: 900;" for="email">e-Mail</label>
-                </div>
-
-                <div class="form-floating text-black col-6 mx-auto my-3">
-                    <input class="form-control fs-5" style="max-width: 350px;" name="message" id="nombre" required
-                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                        data-bs-title="Nombre"></input>
-                    <label style="font-weight: 900;" class="fs-6" for="nombre">Nombre</label>
-                </div>
-
-                <div class="form-floating text-black col-6 mx-auto my-3">
-                    <input class="form-control fs-5" name="message" id="asunto" style="max-width: 350px;" required
-                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                        data-bs-title="Asunto"></input>
-                    <label style="font-weight: 900;" class="fs-6" for="asunto">Asunto</label>
-                </div>
-
-                <div class="form-floating text-black col-6 mx-auto my-3">
-                    <textarea class="form-control fs-5" name="message" id="floatingTextarea" style="height: 100px;"
-                        required data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                        data-bs-title="Mensaje"></textarea>
-                    <label style="font-weight: 900;" class="fs-6 " for="floatingTextarea">Mensaje</label>
-                </div>
-
-                <div class="d-flex pb-3">
-                    <button title="Boton Enviar Contacto" style="font-weight: 700;"
-                        class="btn btn-primary m-2 mx-auto text-black" type="submit">Enviar</button>
-                </div>
-            </form>
-        </section>
-    </div>
-    <!----------------------------FIN CONTACTO-------------------------------------->
-
-    <div class="d-md-flex d-none col justify-content-center mt-5 pt-5">
-        <div class="accordion" id="accordionFeedback">
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button title="Boton Feedback" class="btnComentario accordion-button p-3 text-black"
-                        style="max-height: 10px;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                        aria-expanded="true" aria-controls="collapseOne">
-                        <p class="mx-auto mt-3 me-2">
-                            FEEDBACK
-                        </p>
-                    </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFeedback">
-                    <div class="accordion-body cajaComentario">
-                        <p class="text-white">
-                            ¡Deje feedback sobre el portfolio:<br>
-                            críticas constructivas, comentarios,<br>
-                            sugerencias.. es totalmente anónimo!
-                        </p>
-                        <form class="form-floating" action="https://formspree.io/f/xwkgpvrz" method="POST">
-                            <div class="form text-black">
-                                <textarea class="form-control fs-5" name="message" id="floatingTextarea"
-                                    style="height: 100px;" required data-bs-toggle="tooltip" data-bs-placement="top"
-                                    data-bs-custom-class="custom-tooltip" data-bs-title="Comentario"></textarea>
-                            </div>
-
-                            <div class="d-flex pb-1">
-                                <button title="Boton Enviar Feedback" style="font-weight: 700;"
-                                    class="text-black btn btn-primary mt-2 mx-auto" type="submit">Enviar</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+      <!-- Controls -->
+      <div class="flex items-center gap-5 shrink-0">
+        <!-- Dark mode toggle -->
+        <div class="flex items-center gap-1.5" title="Modo oscuro">
+          <span class="text-xs text-violet-400 select-none">☀</span>
+          <label class="toggle-track" id="darkTrack" style="background:#7c3aed;">
+            <input type="checkbox" id="darkToggle" />
+            <span class="toggle-thumb"></span>
+          </label>
+          <span class="text-xs text-violet-400 select-none">☾</span>
         </div>
-    </div>
 
-    <!----------------------------BOTONERA DEL COSTADO-------------------------------------->
-    <div class="d-none d-md-flex" style="position: fixed; left: 0; top: 50%; transform: translate(0, -50%);">
-        <div class="ms-1 py-3 bg-light bordes">
-            <div class="mb-2">
-                <a href="https://github.com/briansablich" target="_blank" class="m-1 py-3 p-2 hoverButton"
-                    data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-placement="right"
-                    data-bs-title="GitHub" title="Boton GitHub">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="bi bi-github"
-                        viewBox="0 0 16 16" role="img" aria-labelledby="svgGitHub">
-                        <desc id="svgGitHub">Icono utilizado para indicar redireccion a GitHub</desc>
-                        <path
-                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
-                    </svg>
-                </a>
-            </div>
-
-            <div class="my-4">
-                <a href="https://www.linkedin.com/in/brian-sablich/" target="_blank" class="m-1 py-3 p-2 hoverButton"
-                    data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-placement="right"
-                    data-bs-title="Linkedin" title="Boton Linkedin">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="bi bi-linkedin"
-                        viewBox="0 0 16 16" role="img" aria-labelledby="svgLinkedin">
-                        <desc id="svgLinkedin">Icono utilizado para indicar redireccion a Linkedin</desc>
-                        <path
-                            d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
-                    </svg>
-                </a>
-            </div>
-
-            <div class="my-4">
-                <a href="#contacto" class="m-1 py-3 p-2 hoverButton" data-bs-custom-class="custom-tooltip"
-                    data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Contacto" title="Boton Contacto">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="bi bi-envelope-at-fill"
-                        viewBox="0 0 16 16" role="img" aria-labelledby="svgContacto">
-                        <desc id="svgContacto">Icono utilizado para indicar contacto por correo electrónico</desc>
-                        <path
-                            d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2zm-2 9.8V4.698l5.803 3.546zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.5 4.5 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586zM16 9.671V4.697l-5.803 3.546.338.208A4.5 4.5 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671" />
-                        <path
-                            d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791" />
-                    </svg>
-                </a>
-            </div>
-
-            <div class="my-4">
-                <span href="javascript:void(0)" class="m-1 py-3 p-2 hoverButton botonCopiar"
-                    data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-placement="right"
-                    data-bs-title="Copiar e-Mail" role="button" title="Boton Copiar e-Mail">
-                    <img src="Images/svgCopyBotonera.svg" style="height: 30px; width: 30px;"
-                        class="img-fluid idImagenBotonCopiar" alt="Imagen Copiar e-Mail">
-                </span>
-            </div>
-
-
-            <div class="mt-2">
-                <a href="https://drive.google.com/file/d/1vtfKcJet3DN59Zs2V9OOI2QkHhW9aWzG/view?usp=drive_link"
-                    target="_blank" class="m-1 py-3 p-2 hoverButton" data-bs-custom-class="custom-tooltip"
-                    data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="CV" title="Boton CV">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                        class="bi bi-file-earmark-person-fill" viewBox="0 0 16 16" role="img" aria-labelledby="svgCV">
-                        <desc id="svgCV">Icono utilizado para indicar redireccion al Curriculum Vitae</desc>
-                        <path
-                            d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0m2 5.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-.245S4 12 8 12s5 1.755 5 1.755" />
-                    </svg>
-                </a>
-            </div>
-
+        <!-- Language toggle -->
+        <div class="flex items-center gap-1.5" title="Idioma">
+          <span class="text-xs font-mono text-violet-400 select-none">ES</span>
+          <label class="toggle-track" id="langTrack" style="background:#a78bfa;">
+            <input type="checkbox" id="langToggle" />
+            <span class="toggle-thumb"></span>
+          </label>
+          <span class="text-xs font-mono text-violet-400 select-none">EN</span>
         </div>
+
+        <!-- Hamburger -->
+        <button id="menuBtn"
+          class="md:hidden p-2 rounded-lg text-violet-500 hover:bg-violet-50 dark:hover:bg-violet-900/40 transition-colors"
+          aria-label="Menú">
+          <svg id="iconMenu" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor"
+            stroke-width="2" viewBox="0 0 24 24">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+          <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
+            stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="hidden">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
     </div>
-    <!----------------------FIN BOTONERA DEL COSTADO-------------------------------------->
 
-    <!----------------------BOTON SCROLL TO TOP----------------------------->
-    <div>
-        <button type="button" class="btn btn-primary btn-lg rounded-circle shadow" id="btn-ir-arriba"
-            title="Volver arriba">
-            <i class="bi bi-arrow-up"></i> </button>
+    <!-- Mobile menu -->
+    <div id="mobileMenu"
+      class="md:hidden flex-col gap-1 px-4 pb-4 bg-white dark:bg-gray-950 border-t border-violet-100 dark:border-violet-900/60 transition-colors">
+      <a href="#presentacion"
+        class="mob-link inline-block text-sm font-medium text-violet-700 dark:text-violet-300 px-3 py-1.5 rounded-full hover:bg-violet-50 dark:hover:bg-violet-900/30 transition-colors"
+        data-i18n="nav_perfil">Perfil</a>
+      <a href="#stack"
+        class="mob-link inline-block text-sm font-medium text-violet-700 dark:text-violet-300 px-3 py-1.5 rounded-full hover:bg-violet-50 dark:hover:bg-violet-900/30 transition-colors"
+        data-i18n="nav_skills">Habilidades</a>
+      <a href="#proyectos"
+        class="mob-link inline-block text-sm font-medium text-violet-700 dark:text-violet-300 px-3 py-1.5 rounded-full hover:bg-violet-50 dark:hover:bg-violet-900/30 transition-colors"
+        data-i18n="nav_projects">Proyectos</a>
+      <a href="#formacion"
+        class="mob-link inline-block text-sm font-medium text-violet-700 dark:text-violet-300 px-3 py-1.5 rounded-full hover:bg-violet-50 dark:hover:bg-violet-900/30 transition-colors"
+        data-i18n="nav_education">Formación</a>
+      <a href="#experiencia"
+        class="mob-link inline-block text-sm font-medium text-violet-700 dark:text-violet-300 px-3 py-1.5 rounded-full hover:bg-violet-50 dark:hover:bg-violet-900/30 transition-colors"
+        data-i18n="nav_exp">Experiencia</a>
+      <a href="#contacto"
+        class="mob-link inline-block text-sm font-semibold text-white bg-violet-600 px-4 py-1.5 rounded-full hover:bg-violet-700 transition-colors"
+        data-i18n="nav_contact">Contacto</a>
     </div>
-    <!----------------------BOTON SCROLL TO TOP--------------------------->
+  </header>
 
-    <!--------------------------------FOOTER----------------------------------------------->
-    <footer class="pageFooter">
-        <div class="container-fluid">
-            <div class="row">
-                <div style="font-weight: 700;" class="col my-auto ps-3 fs-3">
-                    2026 ® | BRIAN SABLICH
-                    <div class="pt-2 m-auto justify-content-center">
-                        <a class="m-1 py-2 linksFooter d-flex" style="align-items: center;" id="emailLabel">
-                            briansablich@gmail.com<button class="p-0 btn botonCopiar"
-                                data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-placement="right"
-                                data-bs-title="Copiar e-Mail" title="Copiar e-Mail">
-                                <img src="Images/svgCopy.svg" style="height: 2em; width: 2em;"
-                                    class="idImagenBotonCopiar hoverButton p-auto" alt="Imagen Mini Copiar e-Mail">
-                            </button>
-                        </a>
-                    </div>
-                    <div>
-                        <p style="text-align: start;" class="pt-2 mb-0 linksFooter">
-                            ☑️Web Accesible
-                        </p>
-                    </div>
-                </div>
+  <!-- ===================== MAIN ===================== -->
+  <main class="max-w-4xl mx-auto px-6 md:px-10 pb-24 md:pl-20">
 
-                <div class="col text-end me-4">
-                    <div class="mt-2 mb-4">
-                        <a href="https://github.com/briansablich" target="_blank" class="m-1 py-3 p-2 linksFooter">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="bi bi-github"
-                                viewBox="0 0 16 16" alt="Imagen Mini GitHub">
-                                <path
-                                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
-                            </svg>
-                            GITHUB</a>
-                    </div>
-
-                    <div class="my-4">
-                        <a href="https://www.linkedin.com/in/brian-sablich/" target="_blank"
-                            class="m-1 py-3 p-2  linksFooter">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="bi bi-linkedin"
-                                viewBox="0 0 16 16" alt="Imagen Mini Linkedin">
-                                <path
-                                    d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
-                            </svg>
-                            LINKEDIN</a>
-                    </div>
-
-                    <div class="mt-4">
-                        <a href="https://drive.google.com/file/d/1vtfKcJet3DN59Zs2V9OOI2QkHhW9aWzG/view?usp=drive_link"
-                            target="_blank" class="m-1 py-3 p-2 linksFooter">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                class="bi bi-file-earmark-person-fill" viewBox="0 0 16 16" alt="Imagen Mini CV">
-                                <path
-                                    d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0m2 5.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-.245S4 12 8 12s5 1.755 5 1.755" />
-                            </svg>
-                            CV BRIAN</a>
-                    </div>
-
-                </div>
-
-            </div>
+    <!-- ===== HERO ===== -->
+    <section id="hero" class="pt-20 pb-16 reveal">
+      <div class="flex flex-col sm:flex-row items-center sm:items-start gap-8">
+        <div
+          class="shrink-0 w-28 h-28 sm:w-32 sm:h-32 rounded-2xl ring-4 ring-violet-300 dark:ring-violet-700 overflow-hidden shadow-lg">
+          <img src="pngFotoPerfil.png" alt="Foto de perfil de Brian Sablich"
+            class="w-full h-full object-cover" />
         </div>
-    </footer>
-    <!---------------------------FIN FOOTER-------------------------------------------->
+        <div>
+          <p class="font-mono text-violet-500 dark:text-violet-400 text-sm mb-1 tracking-wide"
+            data-i18n="hero_greeting">¡Hola! 👋 Soy</p>
+          <h1 class="text-4xl sm:text-5xl font-bold text-violet-900 dark:text-violet-100 leading-tight">Brian Sablich
+          </h1>
+          <p class="mt-2 text-lg sm:text-xl text-violet-600 dark:text-violet-300 font-light" data-i18n="hero_title">
+            Desarrollador &amp; Analista de Datos</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span
+              class="inline-flex items-center gap-1.5 bg-violet-100 dark:bg-violet-900/60 text-violet-700 dark:text-violet-300 text-xs font-semibold px-3 py-1 rounded-full">
+              <span class="w-1.5 h-1.5 rounded-full bg-violet-500 inline-block"></span>Backend · Java / Spring Boot
+            </span>
+            <span
+              class="inline-flex items-center gap-1.5 bg-violet-50 dark:bg-violet-900/40 text-violet-600 dark:text-violet-400 text-xs font-semibold px-3 py-1 rounded-full">
+              <span class="w-1.5 h-1.5 rounded-full bg-violet-400 inline-block"></span>Data Science · Python / Power BI
+            </span>
+            <span
+              class="inline-flex items-center gap-1.5 bg-violet-50 dark:bg-violet-900/40 text-violet-600 dark:text-violet-400 text-xs font-semibold px-3 py-1 rounded-full"
+              data-i18n="hero_location">📍 Buenos Aires, Argentina</span>
+          </div>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="https://drive.google.com/file/d/1vtfKcJet3DN59Zs2V9OOI2QkHhW9aWzG/view?usp=drive_link"
+              target="_blank"
+              class="inline-flex items-center gap-2 bg-violet-600 hover:bg-violet-700 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors shadow-md shadow-violet-200 dark:shadow-violet-900"
+              data-i18n="hero_cv">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                  d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0m2 5.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-.245S4 12 8 12s5 1.755 5 1.755" />
+              </svg>
+              Ver CV
+            </a>
+            <a href="https://github.com/briansablich" target="_blank"
+              class="inline-flex items-center gap-2 border border-violet-300 dark:border-violet-700 hover:border-violet-500 text-violet-700 dark:text-violet-300 text-sm font-semibold px-5 py-2.5 rounded-full transition-colors bg-white dark:bg-violet-900/20">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+              </svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-    <script src="funcionesPortfolio.js"></script>
+    <!-- ===== PERFIL ===== -->
+    <section id="presentacion" class="py-12 border-t border-violet-100 dark:border-violet-900/50 reveal">
+      <h2 class="text-xs font-mono uppercase tracking-widest text-violet-500 dark:text-violet-400 mb-1">01 —</h2>
+      <h3 class="text-2xl font-bold text-violet-900 dark:text-violet-100 mb-6 section-title" data-i18n="s_profile">
+        Perfil Profesional</h3>
+
+      <p class="text-violet-800 dark:text-violet-200 leading-relaxed text-base mb-4" data-i18n="profile_p1">
+        Soy <strong>Brian Sablich</strong>, de Capital Federal, Argentina. Técnico Universitario en Programación por la
+        <strong>UTN</strong> y actualmente cursando la <strong>Licenciatura en Ciencia de Datos en UNICABA</strong>.
+      </p>
+      <p class="text-violet-800 dark:text-violet-200 leading-relaxed text-base mb-4" data-i18n="profile_p2">
+        Mi perfil combina lógica de <strong>desarrollo backend</strong> — con Java, Spring Boot y APIs REST — con una
+        mirada orientada a los datos: ETL, análisis exploratorio y visualización en Power BI.
+      </p>
+      <p class="text-violet-800 dark:text-violet-200 leading-relaxed text-base mb-8" data-i18n="profile_p3">
+        Mi trayectoria arrancó en la Licenciatura en Geografía (UBA), donde desarrollé pensamiento analítico y criterio.
+        La programación irrumpió como una revelación: lo que empezó como curiosidad se convirtió en carrera. Hoy fusiono
+        mi pasado analítico con mi presente técnico, comprometido con la mejora continua.
+      </p>
+
+      <!-- ── Accordion chips ── -->
+      <div class="flex flex-wrap gap-2 mb-3">
+        <button class="chip-btn" data-chip="camino">🧠 <span data-i18n="chip_path">Camino</span> <span
+            class="chip-arrow">▼</span></button>
+        <button class="chip-btn" data-chip="cambio">💻 <span data-i18n="chip_change">Cambio</span> <span
+            class="chip-arrow">▼</span></button>
+        <button class="chip-btn" data-chip="objetivo">🎯 <span data-i18n="chip_goal">Objetivo</span> <span
+            class="chip-arrow">▼</span></button>
+        <button class="chip-btn" data-chip="sobremi">😸 <span data-i18n="chip_about">+Sobre mí</span> <span
+            class="chip-arrow">▼</span></button>
+      </div>
+
+      <!-- Panels -->
+      <div id="panel-camino"
+        class="chip-panel bg-white dark:bg-violet-950/50 border border-violet-100 dark:border-violet-800 rounded-2xl px-5 py-4 text-sm text-violet-800 dark:text-violet-200 leading-relaxed shadow-sm"
+        data-i18n="panel_camino">
+        Mi trayectoria comenzó en la Licenciatura en Geografía de la UBA. Durante esos años, desarrollé una mirada
+        analítica sobre el entorno y adquirí la disciplina necesaria para el estudio académico. Sin embargo, mi búsqueda
+        de soluciones más dinámicas y técnicas me llevó a descubrir un nuevo horizonte.
+      </div>
+      <div id="panel-cambio"
+        class="chip-panel bg-white dark:bg-violet-950/50 border border-violet-100 dark:border-violet-800 rounded-2xl px-5 py-4 text-sm text-violet-800 dark:text-violet-200 leading-relaxed shadow-sm"
+        data-i18n="panel_cambio">
+        La curiosidad me llevó a la programación y el impacto fue inmediato. Lo que empezó como un interés autodidacta
+        se transformó en mi profesión: realicé una Diplomatura en UTN y me recibí de Técnico Universitario en
+        Programación. Hoy, sigo evolucionando y especializándome en Ciencia de Datos, donde mi pasado geográfico y mi
+        presente tecnológico se fusionan.
+      </div>
+      <div id="panel-objetivo"
+        class="chip-panel bg-white dark:bg-violet-950/50 border border-violet-100 dark:border-violet-800 rounded-2xl px-5 py-4 text-sm text-violet-800 dark:text-violet-200 leading-relaxed shadow-sm"
+        data-i18n="panel_objetivo">
+        Mi objetivo es dar el salto al mundo profesional, integrándome en un equipo donde pueda transformar mi formación
+        técnica en soluciones reales. Busco profesionalizarme en una empresa con propósito, donde mi trabajo no solo
+        resuelva problemas lógicos, sino que genere un impacto positivo. Estoy decidido a aportar mi capacidad analítica
+        y mi compromiso con el aprendizaje continuo para contribuir al éxito colectivo mientras consolido mi carrera en
+        tecnología.
+      </div>
+      <div id="panel-sobremi"
+        class="chip-panel bg-white dark:bg-violet-950/50 border border-violet-100 dark:border-violet-800 rounded-2xl px-5 py-4 text-sm text-violet-800 dark:text-violet-200 leading-relaxed shadow-sm"
+        data-i18n="panel_sobremi">
+        Fuera de la terminal, soy un apasionado de los gatos y la cultura gaming. Mi curiosidad me lleva a desarmar y
+        armar PCs o incursionar en la mecánica. En la cancha, me encontrás jugando de 5 o de interior, siempre con la
+        misma entrega que le pongo a un proyecto. Hincha de San Lorenzo y fiel oyente del rock de los 60' y 70'.
+      </div>
+    </section>
+
+    <!-- ===== HABILIDADES ===== -->
+    <section id="stack" class="py-12 border-t border-violet-100 dark:border-violet-900/50 reveal">
+      <h2 class="text-xs font-mono uppercase tracking-widest text-violet-500 dark:text-violet-400 mb-1">02 —</h2>
+      <h3 class="text-2xl font-bold text-violet-900 dark:text-violet-100 mb-6 section-title" data-i18n="s_skills">
+        Habilidades Técnicas</h3>
+
+      <!-- Backend -->
+      <div class="mb-6">
+        <p class="text-xs font-mono text-violet-400 dark:text-violet-500 uppercase tracking-widest mb-3"
+          data-i18n="sk_backend">Backend &amp; Lenguajes</p>
+        <div class="flex flex-wrap gap-2">
+          <span
+            class="skill-badge bg-white dark:bg-violet-900/40 border border-violet-200 dark:border-violet-700 text-violet-700 dark:text-violet-300 font-semibold text-sm px-3 py-1.5 rounded-lg shadow-sm cursor-default">Java</span>
+          <span
+            class="skill-badge bg-white dark:bg-violet-900/40 border border-violet-200 dark:border-violet-700 text-violet-700 dark:text-violet-300 font-semibold text-sm px-3 py-1.5 rounded-lg shadow-sm cursor-default">Spring
+            Boot</span>
+          <span
+            class="skill-badge bg-white dark:bg-violet-900/40 border border-violet-200 dark:border-violet-700 text-violet-700 dark:text-violet-300 font-semibold text-sm px-3 py-1.5 rounded-lg shadow-sm cursor-default">C#</span>
+          <span
+            class="skill-badge bg-white dark:bg-violet-900/40 border border-violet-200 dark:border-violet-700 text-violet-700 dark:text-violet-300 font-semibold text-sm px-3 py-1.5 rounded-lg shadow-sm cursor-default">ASP.NET</span>
+          <span
+            class="skill-badge bg-white dark:bg-violet-900/40 border border-violet-200 dark:border-violet-700 text-violet-700 dark:text-violet-300 font-semibold text-sm px-3 py-1.5 rounded-lg shadow-sm cursor-default">Python</span>
+          <span
+            class="skill-badge bg-white dark:bg-violet-900/40 border border-violet-200 dark:border-violet-700 text-violet-700 dark:text-violet-300 font-semibold text-sm px-3 py-1.5 rounded-lg shadow-sm cursor-default">APIs
+            REST</span>
+        </div>
+      </div>
+
+      <!-- Data -->
+      <div class="mb-6">
+        <p class="text-xs font-mono text-violet-400 dark:text-violet-500 uppercase tracking-widest mb-3"
+          data-i18n="sk_data">Datos &amp; Analítica</p>
+        <div class="flex flex-wrap gap-2">
+          <span
+            class="skill-badge bg-white dark:bg-violet-900/40 border border-violet-200 dark:border-violet-700 text-violet-700 dark:text-violet-300 font-semibold text-sm px-3 py-1.5 rounded-lg shadow-sm cursor-default">SQL
+            / MySQL / SQL Server</span>
+          <span
+            class="skill-badge bg-white dark:bg-violet-900/40 border border-violet-200 dark:border-violet-700 text-violet-700 dark:text-violet-300 font-semibold text-sm px-3 py-1.5 rounded-lg shadow-sm cursor-default">Power
+            BI</span>
+          <span
+            class="skill-badge bg-white dark:bg-violet-900/40 border border-violet-200 dark:border-violet-700 text-violet-700 dark:text-violet-300 font-semibold text-sm px-3 py-1.5 rounded-lg shadow-sm cursor-default">Power
+            Query</span>
+          <span
+            class="skill-badge bg-white dark:bg-violet-900/40 border border-violet-200 dark:border-violet-700 text-violet-700 dark:text-violet-300 font-semibold text-sm px-3 py-1.5 rounded-lg shadow-sm cursor-default">Excel
+            / Google Sheets</span>
+          <span
+            class="skill-badge bg-white dark:bg-violet-900/40 border border-violet-200 dark:border-violet-700 text-violet-700 dark:text-violet-300 font-semibold text-sm px-3 py-1.5 rounded-lg shadow-sm cursor-default">Pandas
+            / NumPy</span>
+          <span
+            class="skill-badge bg-white dark:bg-violet-900/40 border border-violet-200 dark:border-violet-700 text-violet-700 dark:text-violet-300 font-semibold text-sm px-3 py-1.5 rounded-lg shadow-sm cursor-default">Matplotlib</span>
+          <span
+            class="skill-badge bg-white dark:bg-violet-900/40 border border-violet-200 dark:border-violet-700 text-violet-700 dark:text-violet-300 font-semibold text-sm px-3 py-1.5 rounded-lg shadow-sm cursor-default">ETL</span>
+        </div>
+      </div>
+
+      <!-- DevOps & Tools -->
+      <div class="mb-6">
+        <p class="text-xs font-mono text-violet-400 dark:text-violet-500 uppercase tracking-widest mb-3"
+          data-i18n="sk_devops">DevOps &amp; Herramientas</p>
+        <div class="flex flex-wrap gap-2">
+          <span
+            class="skill-badge bg-white dark:bg-violet-900/40 border border-violet-200 dark:border-violet-700 text-violet-700 dark:text-violet-300 font-semibold text-sm px-3 py-1.5 rounded-lg shadow-sm cursor-default">Docker</span>
+          <span
+            class="skill-badge bg-white dark:bg-violet-900/40 border border-violet-200 dark:border-violet-700 text-violet-700 dark:text-violet-300 font-semibold text-sm px-3 py-1.5 rounded-lg shadow-sm cursor-default">GitHub</span>
+          <span
+            class="skill-badge bg-white dark:bg-violet-900/40 border border-violet-200 dark:border-violet-700 text-violet-700 dark:text-violet-300 font-semibold text-sm px-3 py-1.5 rounded-lg shadow-sm cursor-default">Postman</span>
+          <span
+            class="skill-badge bg-white dark:bg-violet-900/40 border border-violet-200 dark:border-violet-700 text-violet-700 dark:text-violet-300 font-semibold text-sm px-3 py-1.5 rounded-lg shadow-sm cursor-default">Google
+            Cloud</span>
+          <span
+            class="skill-badge bg-white dark:bg-violet-900/40 border border-violet-200 dark:border-violet-700 text-violet-700 dark:text-violet-300 font-semibold text-sm px-3 py-1.5 rounded-lg shadow-sm cursor-default">Google
+            Colab</span>
+          <span
+            class="skill-badge bg-white dark:bg-violet-900/40 border border-violet-200 dark:border-violet-700 text-violet-700 dark:text-violet-300 font-semibold text-sm px-3 py-1.5 rounded-lg shadow-sm cursor-default">Hibernate</span>
+          <span
+            class="skill-badge bg-white dark:bg-violet-900/40 border border-violet-200 dark:border-violet-700 text-violet-700 dark:text-violet-300 font-semibold text-sm px-3 py-1.5 rounded-lg shadow-sm cursor-default">IA
+            (Gemini · ChatGPT · Claude)</span>
+        </div>
+      </div>
+
+      <!-- Frontend -->
+      <div>
+        <p class="text-xs font-mono text-violet-400 dark:text-violet-500 uppercase tracking-widest mb-3">Frontend</p>
+        <div class="flex flex-wrap gap-2">
+          <span
+            class="skill-badge bg-white dark:bg-violet-900/40 border border-violet-200 dark:border-violet-700 text-violet-700 dark:text-violet-300 font-semibold text-sm px-3 py-1.5 rounded-lg shadow-sm cursor-default">HTML</span>
+          <span
+            class="skill-badge bg-white dark:bg-violet-900/40 border border-violet-200 dark:border-violet-700 text-violet-700 dark:text-violet-300 font-semibold text-sm px-3 py-1.5 rounded-lg shadow-sm cursor-default">CSS
+            / Tailwind</span>
+          <span
+            class="skill-badge bg-white dark:bg-violet-900/40 border border-violet-200 dark:border-violet-700 text-violet-700 dark:text-violet-300 font-semibold text-sm px-3 py-1.5 rounded-lg shadow-sm cursor-default">JavaScript</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROYECTOS ===== -->
+    <section id="proyectos" class="py-12 border-t border-violet-100 dark:border-violet-900/50 reveal">
+      <h2 class="text-xs font-mono uppercase tracking-widest text-violet-500 dark:text-violet-400 mb-1">03 —</h2>
+      <h3 class="text-2xl font-bold text-violet-900 dark:text-violet-100 mb-6 section-title" data-i18n="s_projects">
+        Proyectos Destacados</h3>
+      <div class="flex flex-col gap-5">
+
+        <!-- Clínica Veterinaria -->
+        <article
+          class="project-card bg-white dark:bg-violet-950/60 rounded-2xl border border-violet-100 dark:border-violet-800 shadow-sm border-l-4 border-l-violet-600 p-6">
+          <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+            <div>
+              <h4 class="font-bold text-violet-900 dark:text-violet-100 text-lg leading-tight" data-i18n="p1_title">
+                Clínica Veterinaria</h4>
+              <p class="text-xs font-mono text-violet-500 dark:text-violet-400 mt-0.5">Spring Boot · Docker · MySQL ·
+                REST</p>
+            </div>
+            <span
+              class="shrink-0 bg-violet-100 dark:bg-violet-900/60 text-violet-700 dark:text-violet-300 text-xs font-semibold px-2.5 py-1 rounded-full">Backend</span>
+          </div>
+          <ul class="text-sm text-violet-800 dark:text-violet-300 space-y-1.5 mb-4">
+            <li class="flex gap-2"><span class="text-violet-400 mt-0.5">▸</span><span data-i18n="p1_b1">Arquitectura
+                RESTful con Spring Boot para gestión de pacientes y consultas</span></li>
+            <li class="flex gap-2"><span class="text-violet-400 mt-0.5">▸</span><span data-i18n="p1_b2">Operaciones CRUD
+                con Hibernate y MySQL, escalabilidad vía Docker</span></li>
+            <li class="flex gap-2"><span class="text-violet-400 mt-0.5">▸</span><span data-i18n="p1_b3">Pruebas
+                exhaustivas con Postman — API documentada y lista para producción</span></li>
+          </ul>
+          <a href="https://github.com/briansablich/clinicaVeterinaria.git" target="_blank"
+            class="inline-flex items-center gap-2 text-sm font-semibold text-violet-600 dark:text-violet-300 hover:text-violet-800 dark:hover:text-white border border-violet-200 dark:border-violet-700 hover:border-violet-400 px-4 py-1.5 rounded-full transition-colors bg-violet-50 dark:bg-violet-900/40 hover:bg-violet-100 dark:hover:bg-violet-800/60"
+            data-i18n="btn_repo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+              <path
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+            </svg>
+            Ver repositorio
+          </a>
+        </article>
+
+        <!-- Sistema Bancario -->
+        <article
+          class="project-card bg-white dark:bg-violet-950/60 rounded-2xl border border-violet-100 dark:border-violet-800 shadow-sm border-l-4 border-l-violet-600 p-6">
+          <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+            <div>
+              <h4 class="font-bold text-violet-900 dark:text-violet-100 text-lg leading-tight" data-i18n="p2_title">
+                Sistema Bancario</h4>
+              <p class="text-xs font-mono text-violet-500 dark:text-violet-400 mt-0.5">Java Servlet · MySQL · Eclipse
+              </p>
+            </div>
+            <span
+              class="shrink-0 bg-violet-100 dark:bg-violet-900/60 text-violet-700 dark:text-violet-300 text-xs font-semibold px-2.5 py-1 rounded-full"
+              data-i18n="team5">Equipo · 5 personas</span>
+          </div>
+          <ul class="text-sm text-violet-800 dark:text-violet-300 space-y-1.5 mb-4">
+            <li class="flex gap-2"><span class="text-violet-400 mt-0.5">▸</span><span data-i18n="p2_b1">Arquitectura
+                bancaria simulada con Java Servlets, enfocada en integridad transaccional</span></li>
+            <li class="flex gap-2"><span class="text-violet-400 mt-0.5">▸</span><span data-i18n="p2_b2">Modelo MySQL con
+                triggers, restricciones y validaciones a nivel de base de datos</span></li>
+            <li class="flex gap-2"><span class="text-violet-400 mt-0.5">▸</span><span data-i18n="p2_b3">Sistema ABM de
+                clientes con filtrado avanzado y cumplimiento de reglas de negocio</span></li>
+          </ul>
+          <a href="https://github.com/briansablich/Sistema-Bancario-Final" target="_blank"
+            class="inline-flex items-center gap-2 text-sm font-semibold text-violet-600 dark:text-violet-300 hover:text-violet-800 dark:hover:text-white border border-violet-200 dark:border-violet-700 hover:border-violet-400 px-4 py-1.5 rounded-full transition-colors bg-violet-50 dark:bg-violet-900/40 hover:bg-violet-100 dark:hover:bg-violet-800/60"
+            data-i18n="btn_repo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+              <path
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+            </svg>
+            Ver repositorio
+          </a>
+        </article>
+
+        <!-- Transporte -->
+        <article
+          class="project-card bg-white dark:bg-violet-950/60 rounded-2xl border border-violet-100 dark:border-violet-800 shadow-sm border-l-4 border-l-violet-600 p-6">
+          <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+            <div>
+              <h4 class="font-bold text-violet-900 dark:text-violet-100 text-lg leading-tight" data-i18n="p3_title">
+                Sistema de Gestión de Transporte</h4>
+              <p class="text-xs font-mono text-violet-500 dark:text-violet-400 mt-0.5">C# · ASP.NET · SQL Server</p>
+            </div>
+            <span
+              class="shrink-0 bg-violet-100 dark:bg-violet-900/60 text-violet-700 dark:text-violet-300 text-xs font-semibold px-2.5 py-1 rounded-full"
+              data-i18n="team3">Equipo · 3 personas</span>
+          </div>
+          <ul class="text-sm text-violet-800 dark:text-violet-300 space-y-1.5 mb-4">
+            <li class="flex gap-2"><span class="text-violet-400 mt-0.5">▸</span><span data-i18n="p3_b1">Centralización
+                logística de agencias de transporte: flotas, clientes y viajes</span></li>
+            <li class="flex gap-2"><span class="text-violet-400 mt-0.5">▸</span><span data-i18n="p3_b2">Roles de
+                seguridad para administradores y choferes con integridad referencial en SQL Server</span></li>
+            <li class="flex gap-2"><span class="text-violet-400 mt-0.5">▸</span><span data-i18n="p3_b3">Visualización de
+                rutas georreferenciadas y seguimiento en tiempo real</span></li>
+          </ul>
+          <a href="https://github.com/matinicotra/TP-SistemaGestion-AgenciaTransporte" target="_blank"
+            class="inline-flex items-center gap-2 text-sm font-semibold text-violet-600 dark:text-violet-300 hover:text-violet-800 dark:hover:text-white border border-violet-200 dark:border-violet-700 hover:border-violet-400 px-4 py-1.5 rounded-full transition-colors bg-violet-50 dark:bg-violet-900/40 hover:bg-violet-100 dark:hover:bg-violet-800/60"
+            data-i18n="btn_repo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+              <path
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+            </svg>
+            Ver repositorio
+          </a>
+        </article>
+
+        <!-- Políticas Género -->
+        <article
+          class="project-card bg-white dark:bg-violet-950/60 rounded-2xl border border-violet-100 dark:border-violet-800 shadow-sm border-l-4 border-l-violet-400 p-6">
+          <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+            <div>
+              <h4 class="font-bold text-violet-900 dark:text-violet-100 text-lg leading-tight" data-i18n="p4_title">
+                Análisis de Políticas de Género</h4>
+              <p class="text-xs font-mono text-violet-500 dark:text-violet-400 mt-0.5">Power BI · Python · Excel ·
+                Google Colab</p>
+            </div>
+            <span
+              class="shrink-0 bg-violet-100 dark:bg-violet-900/60 text-violet-700 dark:text-violet-300 text-xs font-semibold px-2.5 py-1 rounded-full">Data
+              Science</span>
+          </div>
+          <ul class="text-sm text-violet-800 dark:text-violet-300 space-y-1.5 mb-4">
+            <li class="flex gap-2"><span class="text-violet-400 mt-0.5">▸</span><span data-i18n="p4_b1">Transformación
+                de datos públicos con Python (Pandas, NumPy, Matplotlib) en visualización estratégica</span></li>
+            <li class="flex gap-2"><span class="text-violet-400 mt-0.5">▸</span><span data-i18n="p4_b2">Pipeline ETL en
+                Google Colab: limpieza automatizada de archivos CSV y Excel por provincia</span></li>
+            <li class="flex gap-2"><span class="text-violet-400 mt-0.5">▸</span><span data-i18n="p4_b3">Power Query para
+                modelado de indicadores y detección de disparidades regionales</span></li>
+          </ul>
+          <a href="https://colab.research.google.com/drive/1Vufliz1qlYwpxuQlBeFkmO3oMWcWKwZ1?usp=sharing"
+            target="_blank"
+            class="inline-flex items-center gap-2 text-sm font-semibold text-violet-600 dark:text-violet-300 hover:text-violet-800 dark:hover:text-white border border-violet-200 dark:border-violet-700 hover:border-violet-400 px-4 py-1.5 rounded-full transition-colors bg-violet-50 dark:bg-violet-900/40 hover:bg-violet-100 dark:hover:bg-violet-800/60"
+            data-i18n="btn_colab">
+            Ver en Google Colab
+          </a>
+        </article>
+
+        <!-- Artículos -->
+        <article
+          class="project-card bg-white dark:bg-violet-950/60 rounded-2xl border border-violet-100 dark:border-violet-800 shadow-sm border-l-4 border-l-violet-300 dark:border-l-violet-600 p-6">
+          <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+            <div>
+              <h4 class="font-bold text-violet-900 dark:text-violet-100 text-lg leading-tight" data-i18n="p5_title">
+                Sistema de Gestión de Artículos</h4>
+              <p class="text-xs font-mono text-violet-400 dark:text-violet-500 mt-0.5">C# · WinForms · SQL Server</p>
+            </div>
+            <span
+              class="shrink-0 bg-violet-50 dark:bg-violet-900/40 text-violet-600 dark:text-violet-400 text-xs font-semibold px-2.5 py-1 rounded-full"
+              data-i18n="team3">Equipo · 3 personas</span>
+          </div>
+          <ul class="text-sm text-violet-700 dark:text-violet-300 space-y-1.5 mb-4">
+            <li class="flex gap-2"><span class="text-violet-300 mt-0.5">▸</span><span data-i18n="p5_b1">Gestión de
+                inventario desktop con C# y WinForms, modelo relacional en SQL Server</span></li>
+            <li class="flex gap-2"><span class="text-violet-300 mt-0.5">▸</span><span data-i18n="p5_b2">ABM de artículos
+                con carga múltiple de imágenes y filtros de búsqueda avanzada</span></li>
+            <li class="flex gap-2"><span class="text-violet-300 mt-0.5">▸</span><span data-i18n="p5_b3">Criterios de
+                ordenamiento personalizados para manejo escalable de gran volumen</span></li>
+          </ul>
+          <a href="https://github.com/Julycen97/tp-winform-equipo-13" target="_blank"
+            class="inline-flex items-center gap-2 text-sm font-semibold text-violet-600 dark:text-violet-300 hover:text-violet-800 dark:hover:text-white border border-violet-200 dark:border-violet-700 hover:border-violet-400 px-4 py-1.5 rounded-full transition-colors bg-violet-50 dark:bg-violet-900/40 hover:bg-violet-100 dark:hover:bg-violet-800/60"
+            data-i18n="btn_repo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+              <path
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+            </svg>
+            Ver repositorio
+          </a>
+        </article>
+
+        <!-- Portfolio -->
+        <article
+          class="project-card bg-white dark:bg-violet-950/60 rounded-2xl border border-violet-100 dark:border-violet-800 shadow-sm border-l-4 border-l-violet-300 dark:border-l-violet-600 p-6">
+          <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+            <div>
+              <h4 class="font-bold text-violet-900 dark:text-violet-100 text-lg leading-tight" data-i18n="p6_title">
+                Portfolio Personal</h4>
+              <p class="text-xs font-mono text-violet-400 dark:text-violet-500 mt-0.5">HTML · CSS / Tailwind ·
+                JavaScript · Vercel</p>
+            </div>
+            <span
+              class="shrink-0 bg-violet-50 dark:bg-violet-900/40 text-violet-600 dark:text-violet-400 text-xs font-semibold px-2.5 py-1 rounded-full"
+              data-i18n="individual">Individual</span>
+          </div>
+          <ul class="text-sm text-violet-700 dark:text-violet-300 space-y-1.5 mb-4">
+            <li class="flex gap-2"><span class="text-violet-300 mt-0.5">▸</span><span data-i18n="p6_b1">Presencia
+                digital construida integralmente con HTML, CSS y JavaScript</span></li>
+            <li class="flex gap-2"><span class="text-violet-300 mt-0.5">▸</span><span data-i18n="p6_b2">Despliegue en
+                Vercel con configuración de DNS para dominio personalizado</span></li>
+            <li class="flex gap-2"><span class="text-violet-300 mt-0.5">▸</span><span data-i18n="p6_b3">Migración y
+                rediseño completo a Tailwind CSS — versión actual</span></li>
+          </ul>
+          <a href="https://github.com/briansablich/portfolioBrianSablich.git" target="_blank"
+            class="inline-flex items-center gap-2 text-sm font-semibold text-violet-600 dark:text-violet-300 hover:text-violet-800 dark:hover:text-white border border-violet-200 dark:border-violet-700 hover:border-violet-400 px-4 py-1.5 rounded-full transition-colors bg-violet-50 dark:bg-violet-900/40 hover:bg-violet-100 dark:hover:bg-violet-800/60"
+            data-i18n="btn_repo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+              <path
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+            </svg>
+            Ver repositorio
+          </a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== FORMACIÓN ===== -->
+    <section id="formacion" class="py-12 border-t border-violet-100 dark:border-violet-900/50 reveal">
+      <h2 class="text-xs font-mono uppercase tracking-widest text-violet-500 dark:text-violet-400 mb-1">04 —</h2>
+      <h3 class="text-2xl font-bold text-violet-900 dark:text-violet-100 mb-6 section-title" data-i18n="s_education">
+        Educación &amp; Certificaciones</h3>
+
+      <div class="relative pl-6 border-l-2 border-violet-200 dark:border-violet-800 space-y-8 mb-10">
+        <div class="relative">
+          <span
+            class="absolute -left-[1.4rem] top-1.5 w-4 h-4 rounded-full bg-violet-600 border-2 border-white dark:border-gray-950 shadow ring-2 ring-violet-200 dark:ring-violet-700"></span>
+          <p class="text-xs font-mono text-violet-500 dark:text-violet-400 mb-0.5" data-i18n="edu1_year">2025 · En curso
+          </p>
+          <h4 class="font-bold text-violet-900 dark:text-violet-100" data-i18n="edu1_title">Licenciatura en Ciencia de
+            Datos</h4>
+          <p class="text-sm text-violet-500 dark:text-violet-400 italic">Universidad de la Ciudad de Buenos Aires
+            (UNICABA) · CABA, Argentina</p>
+        </div>
+        <div class="relative">
+          <span
+            class="absolute -left-[1.4rem] top-1.5 w-4 h-4 rounded-full bg-violet-400 border-2 border-white dark:border-gray-950 shadow ring-2 ring-violet-100 dark:ring-violet-800"></span>
+          <p class="text-xs font-mono text-violet-400 mb-0.5" data-i18n="edu2_year">2024 · En curso</p>
+          <h4 class="font-bold text-violet-900 dark:text-violet-100" data-i18n="edu2_title">Idioma Inglés — Elementary
+            Level</h4>
+          <p class="text-sm text-violet-500 dark:text-violet-400 italic">Liceo Cultural Británico · CABA, Argentina</p>
+        </div>
+        <div class="relative">
+          <span
+            class="absolute -left-[1.4rem] top-1.5 w-4 h-4 rounded-full bg-violet-600 border-2 border-white dark:border-gray-950 shadow ring-2 ring-violet-200 dark:ring-violet-700"></span>
+          <p class="text-xs font-mono text-violet-500 dark:text-violet-400 mb-0.5" data-i18n="edu3_year">2022 – 2024 ·
+            Graduado</p>
+          <a href="https://drive.google.com/file/d/1WhKcwMrr9vegB9vxXLkjgQ_GXFnk2BDU/view?usp=drive_link"
+            target="_blank" class="group inline-block">
+            <h4 class="font-bold text-violet-900 dark:text-violet-100 group-hover:text-violet-600 transition-colors"
+              data-i18n="edu3_title">Tecnicatura Universitaria en Programación</h4>
+          </a>
+          <p class="text-sm text-violet-500 dark:text-violet-400 italic">FRGP, Universidad Tecnológica Nacional (UTN) ·
+            Buenos Aires, Argentina</p>
+        </div>
+        <div class="relative">
+          <span
+            class="absolute -left-[1.4rem] top-1.5 w-3.5 h-3.5 rounded-full bg-violet-200 dark:bg-violet-800 border-2 border-white dark:border-gray-950 shadow"></span>
+          <p class="text-xs font-mono text-violet-300 dark:text-violet-600 mb-0.5" data-i18n="edu4_year">2015 – 2019 ·
+            No concluida</p>
+          <h4 class="font-bold text-violet-600 dark:text-violet-500" data-i18n="edu4_title">Licenciatura en Geografía
+          </h4>
+          <p class="text-sm text-violet-400 dark:text-violet-600 italic">FFyL, Universidad de Buenos Aires (UBA) · CABA,
+            Argentina</p>
+        </div>
+      </div>
+
+      <h4 class="text-sm font-semibold text-violet-700 dark:text-violet-400 uppercase tracking-wider mb-4"
+        data-i18n="s_certs">Cursos &amp; Certificaciones</h4>
+      <div class="flex flex-col gap-3">
+        <a href="https://drive.google.com/file/d/1GK8-zMdON555WGt_qSlfxG0dEW1lT_h5/view?usp=sharing" target="_blank"
+          class="cert-item flex items-center justify-between gap-4 bg-white dark:bg-violet-950/50 border border-violet-100 dark:border-violet-800 rounded-xl px-5 py-4 shadow-sm hover:bg-violet-50 dark:hover:bg-violet-900/40 transition-colors">
+          <div class="flex items-center gap-3">
+            <span class="w-2 h-8 rounded-full bg-violet-500 shrink-0"></span>
+            <div>
+              <p class="font-semibold text-violet-900 dark:text-violet-100 text-sm leading-tight"
+                data-i18n="cert1_title">Desarrollo de APIs con SpringBoot</p>
+              <p class="text-xs text-violet-400 dark:text-violet-500 mt-0.5">TodoCode Academy · Backend &amp;
+                Microservicios</p>
+            </div>
+          </div>
+          <span
+            class="shrink-0 bg-violet-100 dark:bg-violet-900/60 text-violet-600 dark:text-violet-400 text-xs font-bold px-2.5 py-1 rounded-full">2025</span>
+        </a>
+        <a href="https://www.skills.google/public_profiles/7adebf99-cf11-441c-8aa8-3c0fc11dc52d/badges/9310413"
+          target="_blank"
+          class="cert-item flex items-center justify-between gap-4 bg-white dark:bg-violet-950/50 border border-violet-100 dark:border-violet-800 rounded-xl px-5 py-4 shadow-sm hover:bg-violet-50 dark:hover:bg-violet-900/40 transition-colors">
+          <div class="flex items-center gap-3">
+            <span class="w-2 h-8 rounded-full bg-violet-700 shrink-0"></span>
+            <div>
+              <p class="font-semibold text-violet-900 dark:text-violet-100 text-sm leading-tight"
+                data-i18n="cert2_title">Google Cloud Computing &amp; Digital Leader</p>
+              <p class="text-xs text-violet-400 dark:text-violet-500 mt-0.5">Google Cloud Skills Boost · Infraestructura
+                y Fundamentos Cloud</p>
+            </div>
+          </div>
+          <span
+            class="shrink-0 bg-violet-100 dark:bg-violet-900/60 text-violet-600 dark:text-violet-400 text-xs font-bold px-2.5 py-1 rounded-full">2024</span>
+        </a>
+        <a href="https://drive.google.com/file/d/1SJBqmmGN7GcZsMXn-iosIPcxgz7dtDis/view?usp=sharing" target="_blank"
+          class="cert-item flex items-center justify-between gap-4 bg-white dark:bg-violet-950/50 border border-violet-100 dark:border-violet-800 rounded-xl px-5 py-4 shadow-sm hover:bg-violet-50 dark:hover:bg-violet-900/40 transition-colors">
+          <div class="flex items-center gap-3">
+            <span class="w-2 h-8 rounded-full bg-violet-400 shrink-0"></span>
+            <div>
+              <p class="font-semibold text-violet-900 dark:text-violet-100 text-sm leading-tight"
+                data-i18n="cert3_title">Programación en JavaScript</p>
+              <p class="text-xs text-violet-400 dark:text-violet-500 mt-0.5">Academia BA Emprende Digital · Fundamentos
+                de JavaScript</p>
+            </div>
+          </div>
+          <span
+            class="shrink-0 bg-violet-100 dark:bg-violet-900/60 text-violet-600 dark:text-violet-400 text-xs font-bold px-2.5 py-1 rounded-full">2024</span>
+        </a>
+        <a href="https://drive.google.com/file/d/1WhKcwMrr9vegB9vxXLkjgQ_GXFnk2BDU/view?usp=drive_link" target="_blank"
+          class="cert-item flex items-center justify-between gap-4 bg-white dark:bg-violet-950/50 border border-violet-100 dark:border-violet-800 rounded-xl px-5 py-4 shadow-sm hover:bg-violet-50 dark:hover:bg-violet-900/40 transition-colors">
+          <div class="flex items-center gap-3">
+            <span class="w-2 h-8 rounded-full bg-violet-300 dark:bg-violet-700 shrink-0"></span>
+            <div>
+              <p class="font-semibold text-violet-900 dark:text-violet-100 text-sm leading-tight"
+                data-i18n="cert4_title">Diplomatura en Programación Web FullStack</p>
+              <p class="text-xs text-violet-400 dark:text-violet-500 mt-0.5">Universidad Tecnológica Nacional (UTN) ·
+                HTML, CSS, Bootstrap &amp; PHP</p>
+            </div>
+          </div>
+          <span
+            class="shrink-0 bg-violet-100 dark:bg-violet-900/60 text-violet-600 dark:text-violet-400 text-xs font-bold px-2.5 py-1 rounded-full">2021</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== EXPERIENCIA ===== -->
+    <section id="experiencia" class="py-12 border-t border-violet-100 dark:border-violet-900/50 reveal">
+      <h2 class="text-xs font-mono uppercase tracking-widest text-violet-500 dark:text-violet-400 mb-1">05 —</h2>
+      <h3 class="text-2xl font-bold text-violet-900 dark:text-violet-100 mb-6 section-title" data-i18n="s_exp">
+        Experiencia</h3>
+      <div
+        class="bg-white dark:bg-violet-950/60 border border-violet-100 dark:border-violet-800 rounded-2xl shadow-sm overflow-hidden">
+        <div class="bg-gradient-to-r from-violet-600 to-violet-800 px-6 py-5">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <h4 class="font-bold text-white text-lg" data-i18n="exp_title">Responsable de Flota &amp; Gestión
+                Operativa</h4>
+              <p class="text-violet-200 text-sm mt-0.5" data-i18n="exp_sub">Transporte Privado — Conductor &amp; Gestión
+                de Flota Familiar</p>
+            </div>
+            <span class="bg-white/20 text-white text-xs font-semibold px-3 py-1.5 rounded-full backdrop-blur-sm"
+              data-i18n="exp_years">2014 – Actualidad · +10 años</span>
+          </div>
+        </div>
+        <div class="px-6 py-6">
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div>
+              <p class="text-xs font-mono text-violet-500 dark:text-violet-400 uppercase tracking-wider mb-3"
+                data-i18n="exp_col1">Conducción &amp; Operaciones</p>
+              <ul class="space-y-2 text-sm text-violet-800 dark:text-violet-300">
+                <li class="flex gap-2"><span class="text-violet-400 mt-0.5 shrink-0">▸</span><span
+                    data-i18n="exp_op1">Conducción de taxi en CABA con manejo activo de la relación con pasajeros</span>
+                </li>
+                <li class="flex gap-2"><span class="text-violet-400 mt-0.5 shrink-0">▸</span><span
+                    data-i18n="exp_op2">Coordinación y supervisión de flota familiar de vehículos y conductores</span>
+                </li>
+                <li class="flex gap-2"><span class="text-violet-400 mt-0.5 shrink-0">▸</span><span
+                    data-i18n="exp_op3">Gestión de rutas, turnos y disponibilidad operativa diaria</span></li>
+                <li class="flex gap-2"><span class="text-violet-400 mt-0.5 shrink-0">▸</span><span
+                    data-i18n="exp_op4">Control de mantenimiento preventivo y correctivo de unidades</span></li>
+              </ul>
+            </div>
+            <div>
+              <p class="text-xs font-mono text-violet-500 dark:text-violet-400 uppercase tracking-wider mb-3"
+                data-i18n="exp_col2">Administración &amp; Finanzas</p>
+              <ul class="space-y-2 text-sm text-violet-800 dark:text-violet-300">
+                <li class="flex gap-2"><span class="text-violet-400 mt-0.5 shrink-0">▸</span><span
+                    data-i18n="exp_adm1">Control de ingresos, egresos y rentabilidad del negocio</span></li>
+                <li class="flex gap-2"><span class="text-violet-400 mt-0.5 shrink-0">▸</span><span
+                    data-i18n="exp_adm2">Gestión de documentación legal y habilitaciones vehiculares</span></li>
+                <li class="flex gap-2"><span class="text-violet-400 mt-0.5 shrink-0">▸</span><span
+                    data-i18n="exp_adm3">Negociación con proveedores y relaciones con clientes clave</span></li>
+                <li class="flex gap-2"><span class="text-violet-400 mt-0.5 shrink-0">▸</span><span
+                    data-i18n="exp_adm4">Registro y seguimiento de métricas operativas en Excel</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="mt-5 pt-5 border-t border-violet-100 dark:border-violet-800">
+            <p class="text-xs font-mono text-violet-400 dark:text-violet-500 uppercase tracking-wider mb-3"
+              data-i18n="exp_soft">Habilidades transversales</p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="bg-violet-50 dark:bg-violet-900/40 text-violet-700 dark:text-violet-300 border border-violet-200 dark:border-violet-700 text-xs font-medium px-3 py-1 rounded-full"
+                data-i18n="sk_s1">Liderazgo</span>
+              <span
+                class="bg-violet-50 dark:bg-violet-900/40 text-violet-700 dark:text-violet-300 border border-violet-200 dark:border-violet-700 text-xs font-medium px-3 py-1 rounded-full"
+                data-i18n="sk_s2">Decisiones bajo presión</span>
+              <span
+                class="bg-violet-50 dark:bg-violet-900/40 text-violet-700 dark:text-violet-300 border border-violet-200 dark:border-violet-700 text-xs font-medium px-3 py-1 rounded-full"
+                data-i18n="sk_s3">Resolución de conflictos</span>
+              <span
+                class="bg-violet-50 dark:bg-violet-900/40 text-violet-700 dark:text-violet-300 border border-violet-200 dark:border-violet-700 text-xs font-medium px-3 py-1 rounded-full"
+                data-i18n="sk_s4">Negociación</span>
+              <span
+                class="bg-violet-50 dark:bg-violet-900/40 text-violet-700 dark:text-violet-300 border border-violet-200 dark:border-violet-700 text-xs font-medium px-3 py-1 rounded-full"
+                data-i18n="sk_s5">Planificación estratégica</span>
+              <span
+                class="bg-violet-50 dark:bg-violet-900/40 text-violet-700 dark:text-violet-300 border border-violet-200 dark:border-violet-700 text-xs font-medium px-3 py-1 rounded-full"
+                data-i18n="sk_s6">Trabajo autónomo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACTO ===== -->
+    <section id="contacto" class="py-12 border-t border-violet-100 dark:border-violet-900/50 reveal">
+      <h2 class="text-xs font-mono uppercase tracking-widest text-violet-500 dark:text-violet-400 mb-1">06 —</h2>
+      <h3 class="text-2xl font-bold text-violet-900 dark:text-violet-100 mb-2 section-title" data-i18n="s_contact">
+        ¿Hablamos?</h3>
+      <p class="text-violet-600 dark:text-violet-400 text-sm mb-8" data-i18n="contact_sub">Estoy abierto a propuestas
+        laborales, colaboraciones y feedback. ¡Escribime!</p>
+
+      <div
+        class="bg-white dark:bg-violet-950/60 border border-violet-100 dark:border-violet-800 rounded-2xl shadow-sm p-6 sm:p-8">
+        <form action="https://formspree.io/f/xwkgpvrz" method="POST" class="space-y-5">
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label
+                class="block text-xs font-semibold text-violet-500 dark:text-violet-400 uppercase tracking-wide mb-1.5"
+                for="email" data-i18n="f_email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required
+                class="w-full border border-violet-200 dark:border-violet-700 rounded-xl px-4 py-2.5 text-sm text-violet-900 dark:text-violet-100 bg-violet-50/50 dark:bg-violet-900/30 transition-all placeholder-violet-300 dark:placeholder-violet-600"
+                data-i18n-ph="ph_email" placeholder="tu@email.com" />
+            </div>
+            <div>
+              <label
+                class="block text-xs font-semibold text-violet-500 dark:text-violet-400 uppercase tracking-wide mb-1.5"
+                for="nombre" data-i18n="f_name">Nombre</label>
+              <input type="text" id="nombre" name="nombre" required
+                class="w-full border border-violet-200 dark:border-violet-700 rounded-xl px-4 py-2.5 text-sm text-violet-900 dark:text-violet-100 bg-violet-50/50 dark:bg-violet-900/30 transition-all placeholder-violet-300 dark:placeholder-violet-600"
+                data-i18n-ph="ph_name" placeholder="Tu nombre" />
+            </div>
+          </div>
+          <div>
+            <label
+              class="block text-xs font-semibold text-violet-500 dark:text-violet-400 uppercase tracking-wide mb-1.5"
+              for="asunto" data-i18n="f_subject">Asunto</label>
+            <input type="text" id="asunto" name="asunto" required
+              class="w-full border border-violet-200 dark:border-violet-700 rounded-xl px-4 py-2.5 text-sm text-violet-900 dark:text-violet-100 bg-violet-50/50 dark:bg-violet-900/30 transition-all placeholder-violet-300 dark:placeholder-violet-600"
+              data-i18n-ph="ph_subject" placeholder="¿De qué querés hablar?" />
+          </div>
+          <div>
+            <label
+              class="block text-xs font-semibold text-violet-500 dark:text-violet-400 uppercase tracking-wide mb-1.5"
+              for="mensaje" data-i18n="f_message">Mensaje</label>
+            <textarea id="mensaje" name="message" rows="4" required
+              class="w-full border border-violet-200 dark:border-violet-700 rounded-xl px-4 py-2.5 text-sm text-violet-900 dark:text-violet-100 bg-violet-50/50 dark:bg-violet-900/30 transition-all resize-none placeholder-violet-300 dark:placeholder-violet-600"
+              data-i18n-ph="ph_message" placeholder="Escribí tu mensaje acá..."></textarea>
+          </div>
+          <button type="submit"
+            class="w-full sm:w-auto bg-violet-600 hover:bg-violet-700 text-white text-sm font-semibold px-8 py-3 rounded-full transition-colors shadow-md shadow-violet-200 dark:shadow-violet-900"
+            data-i18n="f_send">
+            Enviar mensaje
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Success -->
+    <div id="formSuccess"
+      class="items-center gap-3 bg-violet-50 dark:bg-violet-900/40 border border-violet-200 dark:border-violet-700 rounded-xl px-5 py-4 mt-2">
+      <span class="text-2xl">✅</span>
+      <p class="text-sm text-violet-800 dark:text-violet-200 font-medium" data-i18n="form_ok">¡Mensaje enviado! Te
+        respondo pronto.</p>
+    </div>
+
+    <!-- Error -->
+    <div id="formError"
+      class="items-center gap-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-700 rounded-xl px-5 py-4 mt-2">
+      <span class="text-2xl">❌</span>
+      <p class="text-sm text-red-700 dark:text-red-300 font-medium" data-i18n="form_err">Algo salió mal. Intentá de
+        nuevo o escribime a briansablich@gmail.com</p>
+    </div>
+
+    <!-- Direct email fallback -->
+    <p class="mt-4 text-xs text-violet-400 dark:text-violet-500 text-center">
+      <span data-i18n="contact_or">O escribime directo a</span>
+      <button id="copyEmailForm"
+        class="text-violet-600 dark:text-violet-400 hover:underline ml-1 cursor-pointer font-medium">briansablich@gmail.com</button>
+    </p>
+    </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="border-t border-violet-100 dark:border-violet-900/50 bg-white dark:bg-gray-950 transition-colors">
+    <div
+      class="max-w-4xl mx-auto px-6 md:px-10 md:pl-20 py-8 flex flex-col sm:flex-row items-start justify-between gap-6">
+      <div>
+        <p class="font-bold text-violet-900 dark:text-violet-100">2026 ® Brian Sablich</p>
+        <button id="footerCopy"
+          class="flex items-center gap-2 text-sm text-violet-400 hover:text-violet-600 dark:hover:text-violet-300 transition-colors mt-1 cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+            <path
+              d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1z" />
+            <path
+              d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0z" />
+          </svg>
+          briansablich@gmail.com
+        </button>
+      </div>
+
+      <!-- Vertical links -->
+      <div class="flex flex-col gap-2">
+        <a href="https://github.com/briansablich" target="_blank"
+          class="text-violet-400 hover:text-violet-600 dark:hover:text-violet-300 transition-colors text-sm font-medium flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 16 16">
+            <path
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+          </svg>
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/brian-sablich/" target="_blank"
+          class="text-violet-400 hover:text-violet-600 dark:hover:text-violet-300 transition-colors text-sm font-medium flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 16 16">
+            <path
+              d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+          </svg>
+          LinkedIn
+        </a>
+        <a href="https://drive.google.com/file/d/1vtfKcJet3DN59Zs2V9OOI2QkHhW9aWzG/view?usp=drive_link" target="_blank"
+          class="text-violet-400 hover:text-violet-600 dark:hover:text-violet-300 transition-colors text-sm font-medium flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 16 16">
+            <path
+              d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0m2 5.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-.245S4 12 8 12s5 1.755 5 1.755" />
+          </svg>
+          Curriculum Vitae
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <button id="btnTop" title="Volver arriba"
+    class="w-11 h-11 bg-violet-600 hover:bg-violet-700 text-white rounded-full shadow-lg flex items-center justify-center transition-colors">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"
+      viewBox="0 0 24 24">
+      <polyline points="18 15 12 9 6 15" />
+    </svg>
+  </button>
+
+  <!-- Toast -->
+  <div id="toast"
+    class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-violet-900 text-white text-xs font-medium px-4 py-2 rounded-full shadow-lg opacity-0 pointer-events-none transition-opacity z-50"
+    data-i18n="toast_copied">
+    ✅ Email copiado
+  </div>
+
+  <!-- ===================== JS ===================== -->
+  <script>
+      // ── EmailJS init (reemplazá YOUR_PUBLIC_KEY con tu clave de emailjs.com) ──
+      (function () {
+        try { emailjs.init({ publicKey: 'YOUR_PUBLIC_KEY' }); } catch (e) { }
+      })();
+
+    // ── i18n ────────────────────────────────────────────────────────────────────
+    const i18n = {
+      es: {
+        nav_perfil: 'Perfil', nav_skills: 'Habilidades', nav_projects: 'Proyectos',
+        nav_education: 'Formación', nav_exp: 'Experiencia', nav_contact: 'Contacto',
+        hero_greeting: '¡Hola! 👋 Soy', hero_title: 'Desarrollador & Analista de Datos',
+        hero_location: '📍 Buenos Aires, Argentina', hero_cv: 'Ver CV',
+        s_profile: 'Perfil Profesional', s_skills: 'Habilidades Técnicas',
+        s_projects: 'Proyectos Destacados', s_education: 'Educación & Certificaciones',
+        s_certs: 'Cursos & Certificaciones', s_exp: 'Experiencia', s_contact: '¿Hablamos?',
+        contact_sub: 'Estoy abierto a propuestas laborales, colaboraciones y feedback. ¡Escribime!',
+        sk_backend: 'Backend & Lenguajes', sk_data: 'Datos & Analítica', sk_devops: 'DevOps & Herramientas',
+        chip_path: 'Camino', chip_change: 'Cambio', chip_goal: 'Objetivo', chip_about: '+Sobre mí',
+        profile_p1: 'Soy <strong>Brian Sablich</strong>, de Capital Federal, Argentina. Técnico Universitario en Programación por la <strong>UTN</strong> y actualmente cursando la <strong>Licenciatura en Ciencia de Datos en UNICABA</strong>.',
+        profile_p2: 'Mi perfil combina lógica de <strong>desarrollo backend</strong> — con Java, Spring Boot y APIs REST — con una mirada orientada a los datos: ETL, análisis exploratorio y visualización en Power BI.',
+        profile_p3: 'Mi trayectoria arrancó en la Licenciatura en Geografía (UBA), donde desarrollé pensamiento analítico y criterio. La programación irrumpió como una revelación: lo que empezó como curiosidad se convirtió en carrera. Hoy fusiono mi pasado analítico con mi presente técnico, comprometido con la mejora continua.',
+        panel_camino: 'Mi trayectoria comenzó en la Licenciatura en Geografía de la UBA. Durante esos años, desarrollé una mirada analítica sobre el entorno y adquirí la disciplina necesaria para el estudio académico. Sin embargo, mi búsqueda de soluciones más dinámicas y técnicas me llevó a descubrir un nuevo horizonte.',
+        panel_cambio: 'La curiosidad me llevó a la programación y el impacto fue inmediato. Lo que empezó como un interés autodidacta se transformó en mi profesión: realicé una Diplomatura en UTN y me recibí de Técnico Universitario en Programación. Hoy, sigo evolucionando y especializándome en Ciencia de Datos, donde mi pasado geográfico y mi presente tecnológico se fusionan.',
+        panel_objetivo: 'Mi objetivo es dar el salto al mundo profesional, integrándome en un equipo donde pueda transformar mi formación técnica en soluciones reales. Busco profesionalizarme en una empresa con propósito, donde mi trabajo genere un impacto positivo. Estoy decidido a aportar mi capacidad analítica y compromiso con el aprendizaje continuo para contribuir al éxito colectivo mientras consolido mi carrera en tecnología.',
+        panel_sobremi: 'Fuera de la terminal, soy un apasionado de los gatos y la cultura gaming. Mi curiosidad me lleva a desarmar y armar PCs o incursionar en la mecánica. En la cancha, me encontrás jugando de 5 o de interior, siempre con la misma entrega que le pongo a un proyecto. Hincha de San Lorenzo y fiel oyente del rock de los 60\' y 70\'.',
+        p1_title: 'Clínica Veterinaria', p1_b1: 'Arquitectura RESTful con Spring Boot para gestión de pacientes y consultas', p1_b2: 'Operaciones CRUD con Hibernate y MySQL, escalabilidad vía Docker', p1_b3: 'Pruebas exhaustivas con Postman — API documentada y lista para producción',
+        p2_title: 'Sistema Bancario', team5: 'Equipo · 5 personas', p2_b1: 'Arquitectura bancaria simulada con Java Servlets, enfocada en integridad transaccional', p2_b2: 'Modelo MySQL con triggers, restricciones y validaciones a nivel de base de datos', p2_b3: 'Sistema ABM de clientes con filtrado avanzado y cumplimiento de reglas de negocio',
+        p3_title: 'Sistema de Gestión de Transporte', team3: 'Equipo · 3 personas', p3_b1: 'Centralización logística de agencias de transporte: flotas, clientes y viajes', p3_b2: 'Roles de seguridad para administradores y choferes con integridad referencial en SQL Server', p3_b3: 'Visualización de rutas georreferenciadas y seguimiento en tiempo real',
+        p4_title: 'Análisis de Políticas de Género', p4_b1: 'Transformación de datos públicos con Python (Pandas, NumPy, Matplotlib) en visualización estratégica', p4_b2: 'Pipeline ETL en Google Colab: limpieza automatizada de archivos CSV y Excel por provincia', p4_b3: 'Power Query para modelado de indicadores y detección de disparidades regionales',
+        p5_title: 'Sistema de Gestión de Artículos', p5_b1: 'Gestión de inventario desktop con C# y WinForms, modelo relacional en SQL Server', p5_b2: 'ABM de artículos con carga múltiple de imágenes y filtros de búsqueda avanzada', p5_b3: 'Criterios de ordenamiento personalizados para manejo escalable de gran volumen',
+        p6_title: 'Portfolio Personal', individual: 'Individual', p6_b1: 'Presencia digital construida integralmente con HTML, CSS y JavaScript', p6_b2: 'Despliegue en Vercel con configuración de DNS para dominio personalizado', p6_b3: 'Migración y rediseño completo a Tailwind CSS — versión actual',
+        btn_repo: 'Ver repositorio', btn_colab: 'Ver en Google Colab',
+        edu1_year: '2025 · En curso', edu1_title: 'Licenciatura en Ciencia de Datos',
+        edu2_year: '2024 · En curso', edu2_title: 'Idioma Inglés — Elementary Level',
+        edu3_year: '2022 – 2024 · Graduado', edu3_title: 'Tecnicatura Universitaria en Programación',
+        edu4_year: '2015 – 2019 · No concluida', edu4_title: 'Licenciatura en Geografía',
+        cert1_title: 'Desarrollo de APIs con SpringBoot', cert2_title: 'Google Cloud Computing & Digital Leader',
+        cert3_title: 'Programación en JavaScript', cert4_title: 'Diplomatura en Programación Web FullStack',
+        exp_title: 'Responsable de Flota & Gestión Operativa',
+        exp_sub: 'Transporte Privado — Conductor & Gestión de Flota Familiar',
+        exp_years: '2014 – Actualidad · +10 años', exp_col1: 'Conducción & Operaciones', exp_col2: 'Administración & Finanzas',
+        exp_op1: 'Conducción de taxi en CABA con manejo activo de la relación con pasajeros',
+        exp_op2: 'Coordinación y supervisión de flota familiar de vehículos y conductores',
+        exp_op3: 'Gestión de rutas, turnos y disponibilidad operativa diaria',
+        exp_op4: 'Control de mantenimiento preventivo y correctivo de unidades',
+        exp_adm1: 'Control de ingresos, egresos y rentabilidad del negocio',
+        exp_adm2: 'Gestión de documentación legal y habilitaciones vehiculares',
+        exp_adm3: 'Negociación con proveedores y relaciones con clientes clave',
+        exp_adm4: 'Registro y seguimiento de métricas operativas en Excel',
+        exp_soft: 'Habilidades transversales',
+        sk_s1: 'Liderazgo', sk_s2: 'Decisiones bajo presión', sk_s3: 'Resolución de conflictos',
+        sk_s4: 'Negociación', sk_s5: 'Planificación estratégica', sk_s6: 'Trabajo autónomo',
+        f_email: 'Email', f_name: 'Nombre', f_subject: 'Asunto', f_message: 'Mensaje', f_send: 'Enviar mensaje',
+        ph_email: 'tu@email.com', ph_name: 'Tu nombre', ph_subject: '¿De qué querés hablar?', ph_message: 'Escribí tu mensaje acá...',
+        toast_copied: '✅ Email copiado', form_ok: '¡Mensaje enviado! Te respondo pronto.',
+        form_err: 'Algo salió mal. Intentá de nuevo o escribime a briansablich@gmail.com',
+        contact_or: 'O escribime directo a',
+      },
+      en: {
+        nav_perfil: 'Profile', nav_skills: 'Skills', nav_projects: 'Projects',
+        nav_education: 'Education', nav_exp: 'Experience', nav_contact: 'Contact',
+        hero_greeting: 'Hi! 👋 I\'m', hero_title: 'Developer & Data Analyst',
+        hero_location: '📍 Buenos Aires, Argentina', hero_cv: 'View CV',
+        s_profile: 'Professional Profile', s_skills: 'Technical Skills',
+        s_projects: 'Featured Projects', s_education: 'Education & Certifications',
+        s_certs: 'Courses & Certifications', s_exp: 'Experience', s_contact: 'Let\'s Talk?',
+        contact_sub: 'Open to job proposals, collaborations and feedback. Write me!',
+        sk_backend: 'Backend & Languages', sk_data: 'Data & Analytics', sk_devops: 'DevOps & Tools',
+        chip_path: 'Journey', chip_change: 'Shift', chip_goal: 'Goal', chip_about: 'About me',
+        profile_p1: 'I\'m <strong>Brian Sablich</strong>, from Buenos Aires, Argentina. I hold a University Technical Degree in Programming from <strong>UTN</strong> and I\'m currently pursuing a <strong>Bachelor\'s in Data Science at UNICABA</strong>.',
+        profile_p2: 'My profile combines <strong>backend development</strong> logic — with Java, Spring Boot and REST APIs — with a data-oriented mindset: ETL, exploratory analysis and Power BI visualization.',
+        profile_p3: 'My career started in Geography (UBA), where I developed analytical thinking and judgment. Programming changed everything: what began as curiosity became a profession. Today I merge my analytical background with my technical present, committed to continuous improvement.',
+        panel_camino: 'My journey began in the Geography degree at UBA. During those years, I developed an analytical view of the environment and acquired the discipline needed for academic study. However, my search for more dynamic and technical solutions led me to discover a new horizon.',
+        panel_cambio: 'Curiosity led me to programming and the impact was immediate. What started as a self-taught interest became my profession: I completed a Diploma at UTN and graduated as a University Technical Programmer. Today, I keep evolving and specializing in Data Science, where my geographical past and technological present merge.',
+        panel_objetivo: 'My goal is to make the leap into the professional world, joining a team where I can turn my technical training into real solutions. I seek to grow professionally in a purpose-driven company where my work generates a positive impact. I\'m committed to contributing my analytical skills and continuous learning to collective success while building my tech career.',
+        panel_sobremi: 'Away from the terminal, I\'m passionate about cats and gaming culture. My curiosity drives me to build and repair PCs or tinker with mechanics. On the pitch, you\'ll find me playing midfield with the same dedication I bring to every project. San Lorenzo fan and devoted listener of 60s and 70s rock.',
+        p1_title: 'Veterinary Clinic', p1_b1: 'RESTful architecture with Spring Boot for patient and appointment management', p1_b2: 'CRUD operations with Hibernate and MySQL, scalability via Docker', p1_b3: 'Thorough testing with Postman — documented API ready for production',
+        p2_title: 'Banking System', team5: 'Team · 5 people', p2_b1: 'Simulated banking architecture with Java Servlets, focused on transactional integrity', p2_b2: 'MySQL model with triggers, constraints and database-level validations', p2_b3: 'Customer ABM system with advanced filtering and business rules enforcement',
+        p3_title: 'Transport Management System', team3: 'Team · 3 people', p3_b1: 'Logistics centralization for transport agencies: fleets, clients and trips', p3_b2: 'Security roles for admins and drivers with referential integrity in SQL Server', p3_b3: 'Georeferenced route visualization and real-time task tracking',
+        p4_title: 'Gender Policy Analysis', p4_b1: 'Transforming public data with Python (Pandas, NumPy, Matplotlib) into strategic visualization', p4_b2: 'ETL pipeline in Google Colab: automated cleaning of CSV and Excel files by province', p4_b3: 'Power Query for indicator modeling and regional disparity detection',
+        p5_title: 'Article Management System', p5_b1: 'Desktop inventory management with C# and WinForms, relational model in SQL Server', p5_b2: 'Article CRUD with multiple image upload and advanced search filters', p5_b3: 'Custom sorting criteria for scalable management of large product volumes',
+        p6_title: 'Personal Portfolio', individual: 'Individual', p6_b1: 'End-to-end digital presence built with HTML, CSS and JavaScript', p6_b2: 'Deployed on Vercel with DNS configuration for a custom domain', p6_b3: 'Full migration and redesign to Tailwind CSS — current version',
+        btn_repo: 'View repository', btn_colab: 'Open in Google Colab',
+        edu1_year: '2025 · Ongoing', edu1_title: 'Bachelor\'s in Data Science',
+        edu2_year: '2024 · Ongoing', edu2_title: 'English — Elementary Level',
+        edu3_year: '2022 – 2024 · Graduate', edu3_title: 'University Technical Degree in Programming',
+        edu4_year: '2015 – 2019 · Not completed', edu4_title: 'Bachelor\'s in Geography',
+        cert1_title: 'API Development with SpringBoot', cert2_title: 'Google Cloud Computing & Digital Leader',
+        cert3_title: 'JavaScript Programming', cert4_title: 'FullStack Web Programming Diploma',
+        exp_title: 'Fleet Manager & Operations Lead',
+        exp_sub: 'Private Transport — Taxi Driver & Family Fleet Management',
+        exp_years: '2014 – Present · 10+ years', exp_col1: 'Driving & Operations', exp_col2: 'Administration & Finance',
+        exp_op1: 'Taxi driving in Buenos Aires with active passenger relationship management',
+        exp_op2: 'Coordination and supervision of family vehicle fleet and drivers',
+        exp_op3: 'Route, shift and daily availability management',
+        exp_op4: 'Preventive and corrective vehicle maintenance tracking',
+        exp_adm1: 'Income, expense and profitability control',
+        exp_adm2: 'Legal documentation and vehicle license management',
+        exp_adm3: 'Supplier negotiation and key client relationships',
+        exp_adm4: 'Operational metrics tracking in Excel',
+        exp_soft: 'Transferable skills',
+        sk_s1: 'Leadership', sk_s2: 'Decisions under pressure', sk_s3: 'Conflict resolution',
+        sk_s4: 'Negotiation', sk_s5: 'Strategic planning', sk_s6: 'Autonomous work',
+        f_email: 'Email', f_name: 'Name', f_subject: 'Subject', f_message: 'Message', f_send: 'Send message',
+        ph_email: 'your@email.com', ph_name: 'Your name', ph_subject: 'What would you like to talk about?', ph_message: 'Write your message here...',
+        toast_copied: '✅ Email copied', form_ok: 'Message sent! I\'ll get back to you soon.',
+        form_err: 'Something went wrong. Try again or email me at briansablich@gmail.com',
+        contact_or: 'Or email me directly at',
+      }
+    };
+
+    let currentLang = 'es';
+
+    function applyLang(lang) {
+      const d = i18n[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const k = el.getAttribute('data-i18n');
+        if (d[k] !== undefined) el.innerHTML = d[k];
+      });
+      document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+        const k = el.getAttribute('data-i18n-ph');
+        if (d[k] !== undefined) el.setAttribute('placeholder', d[k]);
+      });
+      document.documentElement.lang = lang;
+      currentLang = lang;
+    }
+
+    // ── Dark mode ──────────────────────────────────────────────────────
+    const darkToggle = document.getElementById('darkToggle');
+    const darkTrack = document.getElementById('darkTrack');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('dark') === 'true') {
+      html.classList.add('dark');
+      darkToggle.checked = true;
+      darkTrack.style.background = '#4c1d95';
+    }
+
+    darkToggle.addEventListener('change', () => {
+      if (darkToggle.checked) {
+        html.classList.add('dark');
+        darkTrack.style.background = '#4c1d95';
+        localStorage.setItem('dark', 'true');
+      } else {
+        html.classList.remove('dark');
+        darkTrack.style.background = '#7c3aed';
+        localStorage.setItem('dark', 'false');
+      }
+    });
+
+    // ── Language toggle ────────────────────────────────────────────────
+    document.getElementById('langToggle').addEventListener('change', function () {
+      applyLang(this.checked ? 'en' : 'es');
+    });
+
+    // ── Mobile menu ────────────────────────────────────────────────────
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const iconMenu = document.getElementById('iconMenu');
+    const iconClose = document.getElementById('iconClose');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      iconMenu.classList.toggle('hidden');
+      iconClose.classList.toggle('hidden');
+    });
+    document.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      iconMenu.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+    }));
+
+    // ── Accordion chips ────────────────────────────────────────────────
+    document.querySelectorAll('.chip-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-chip');
+        const panel = document.getElementById('panel-' + target);
+        const isOpen = panel.classList.contains('open');
+
+        // close all
+        document.querySelectorAll('.chip-panel').forEach(p => p.classList.remove('open'));
+        document.querySelectorAll('.chip-btn').forEach(b => b.classList.remove('active'));
+
+        // toggle clicked
+        if (!isOpen) {
+          panel.classList.add('open');
+          btn.classList.add('active');
+        }
+      });
+    });
+
+    // ── Scroll reveal ──────────────────────────────────────────────────
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+    }, { threshold: 0.07 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ── Active nav ─────────────────────────────────────────────────────
+    const navLinks = document.querySelectorAll('.nav-link');
+    const navObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          const a = document.querySelector(`.nav-link[href="#${e.target.id}"]`);
+          if (a) a.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    document.querySelectorAll('section[id]').forEach(s => navObserver.observe(s));
+
+    // ── Scroll to top ──────────────────────────────────────────────────
+    const btnTop = document.getElementById('btnTop');
+    window.addEventListener('scroll', () => btnTop.classList.toggle('show', window.scrollY > 300));
+    btnTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // ── Copy email ─────────────────────────────────────────────────────
+    function copyEmail() {
+      navigator.clipboard.writeText('briansablich@gmail.com').then(() => {
+        const toast = document.getElementById('toast');
+        toast.style.opacity = '1';
+        setTimeout(() => toast.style.opacity = '0', 2200);
+      });
+    }
+    document.getElementById('sidebarCopy').addEventListener('click', copyEmail);
+    document.getElementById('footerCopy').addEventListener('click', copyEmail);
+    document.getElementById('copyEmailForm').addEventListener('click', copyEmail);
+
+    // ── Contact form (EmailJS) ─────────────────────────────────────────
+    // SETUP: Creá una cuenta en https://emailjs.com (gratis, 200 emails/mes)
+    // 1. Conectá tu Gmail como servicio → copiá el Service ID
+    // 2. Creá un template con variables: {{from_name}}, {{from_email}}, {{subject}}, {{message}}
+    // 3. Copiá el Template ID y tu Public Key
+    // 4. Reemplazá los tres valores de abajo
+
+    const EMAILJS_SERVICE = 'YOUR_SERVICE_ID';   // ej: 'service_abc123'
+    const EMAILJS_TEMPLATE = 'YOUR_TEMPLATE_ID';  // ej: 'template_xyz789'
+    // La Public Key ya está en emailjs.init() arriba
+
+    document.getElementById('sendBtn').addEventListener('click', async () => {
+      const email = document.getElementById('f_email').value.trim();
+      const name = document.getElementById('f_name').value.trim();
+      const subject = document.getElementById('f_subject').value.trim();
+      const message = document.getElementById('f_message').value.trim();
+
+      if (!email || !name || !subject || !message) {
+        document.getElementById('f_email').reportValidity();
+        return;
+      }
+
+      const btn = document.getElementById('sendBtn');
+      btn.disabled = true;
+      btn.innerHTML = '<svg class="animate-spin" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="white" stroke-width="4"/><path class="opacity-75" fill="white" d="M4 12a8 8 0 018-8v8z"/></svg> Enviando...';
+
+      try {
+        await emailjs.send(EMAILJS_SERVICE, EMAILJS_TEMPLATE, {
+          from_name: name,
+          from_email: email,
+          subject: subject,
+          message: message,
+        });
+        document.getElementById('contactForm').style.opacity = '0.3';
+        document.getElementById('contactForm').style.pointerEvents = 'none';
+        document.getElementById('formSuccess').classList.add('show');
+      } catch (err) {
+        document.getElementById('formError').classList.add('show');
+        btn.disabled = false;
+        btn.innerHTML = i18n[currentLang].f_send;
+      }
+    });
+  </script>
 </body>
 
 </html>
